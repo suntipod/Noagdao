@@ -1,0 +1,2582 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sedan & SUV Matchmaker - เปรียบเทียบและวิเคราะห์รถเก๋งและ SUV งบ 1.2 ล้านบาท</title>
+    <meta name="description" content="วิเคราะห์และเปรียบเทียบรถยนต์งบไม่เกิน 1.2 ล้านบาท เพื่อการตัดสินใจที่ชาญฉลาด">
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans Thai', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter & Noto Sans Thai -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --brand: #4f46e5;
+            --brand-light: #818cf8;
+            --brand-glow: rgba(99, 102, 241, 0.25);
+            --surface: #ffffff;
+            --surface-2: #f8fafc;
+            --border: rgba(148, 163, 184, 0.3);
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
+            --shadow-brand: 0 4px 20px rgba(79, 70, 229, 0.20);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Thai', sans-serif;
+            background: #f1f5f9;
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 90% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ─── Premium Scrollbar ─── */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 99px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        /* ─── Range Slider ─── */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 5px;
+            border-radius: 99px;
+            background: linear-gradient(to right, var(--brand) 0%, var(--brand) var(--val, 0%), #e2e8f0 var(--val, 0%), #e2e8f0 100%);
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: white;
+            border: 2.5px solid var(--brand);
+            box-shadow: 0 0 0 3px var(--brand-glow), var(--shadow-sm);
+            cursor: pointer;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 6px var(--brand-glow), var(--shadow-md);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: white;
+            border: 2.5px solid var(--brand);
+            box-shadow: 0 0 0 3px var(--brand-glow);
+            cursor: pointer;
+        }
+
+        /* ─── Glass Card ─── */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: var(--shadow-md);
+            border-radius: 20px;
+        }
+
+        .glass-card-dark {
+            background: rgba(15, 23, 42, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: var(--shadow-lg);
+            border-radius: 20px;
+        }
+
+        /* ─── Premium Tab Pills ─── */
+        .tab-pill {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: 99px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1.5px solid transparent;
+            white-space: nowrap;
+            background: transparent;
+            letter-spacing: 0.01em;
+        }
+
+        .tab-pill:hover {
+            color: var(--brand);
+            background: rgba(79, 70, 229, 0.06);
+        }
+
+        .tab-pill.tab-active {
+            background: var(--brand);
+            color: white;
+            box-shadow: var(--shadow-brand);
+        }
+
+        .tab-pill.tab-active:hover {
+            background: #4338ca;
+            color: white;
+        }
+
+        /* ─── Premium Car Card ─── */
+        .car-card {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            overflow: hidden;
+        }
+
+        .car-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(99, 102, 241, 0.25);
+        }
+
+        .car-card.selected {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px var(--brand-glow), var(--shadow-lg);
+        }
+
+        /* ─── Gradient Text ─── */
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #f59e0b 0%, #ef4444 60%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ─── Type Badges ─── */
+        .badge-hybrid {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            color: #065f46;
+            border: 1px solid #6ee7b7;
+        }
+
+        .badge-phev {
+            background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+            color: #4c1d95;
+            border: 1px solid #a78bfa;
+        }
+
+        .badge-turbo {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: #92400e;
+            border: 1px solid #fcd34d;
+        }
+
+        .badge-ice {
+            background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+            color: #334155;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* ─── Stat Bar ─── */
+        .stat-bar-track {
+            width: 80px;
+            height: 6px;
+            background: #f1f5f9;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .stat-bar-fill {
+            height: 100%;
+            border-radius: 99px;
+            transition: width 0.5s ease;
+        }
+
+        /* ─── Animate-in ─── */
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeSlideUp 0.4s ease both;
+        }
+
+        .animate-in-delay-1 {
+            animation-delay: 0.05s;
+        }
+
+        .animate-in-delay-2 {
+            animation-delay: 0.10s;
+        }
+
+        .animate-in-delay-3 {
+            animation-delay: 0.15s;
+        }
+
+        /* ─── Header Glow Blob ─── */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) scale(1);
+            }
+
+            50% {
+                transform: translateY(-12px) scale(1.04);
+            }
+        }
+
+        .blob {
+            border-radius: 50%;
+            filter: blur(80px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .blob-2 {
+            animation-delay: -4s;
+        }
+
+        /* ─── Glassmorphism input ─── */
+        .glass-input {
+            background: rgba(248, 250, 252, 0.8);
+            border: 1.5px solid rgba(148, 163, 184, 0.3);
+            border-radius: 12px;
+            padding: 8px 12px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #1e293b;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            width: 100%;
+        }
+
+        .glass-input:focus {
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px var(--brand-glow);
+        }
+
+        /* ─── Preset Buttons ─── */
+        .preset-btn {
+            padding: 6px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 10px;
+            border: 1.5px solid rgba(148, 163, 184, 0.35);
+            background: white;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .preset-btn:hover {
+            border-color: var(--brand);
+            color: var(--brand);
+            background: rgba(79, 70, 229, 0.04);
+        }
+
+        .preset-btn.active-preset {
+            border-color: var(--brand);
+            background: rgba(79, 70, 229, 0.08);
+            color: #3730a3;
+            box-shadow: 0 0 0 3px var(--brand-glow);
+        }
+
+        /* ─── Quiz Btn ─── */
+        .quiz-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            text-align: left;
+            padding: 14px 18px;
+            border: 1.5px solid rgba(148, 163, 184, 0.3);
+            border-radius: 14px;
+            background: white;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--brand);
+            background: rgba(79, 70, 229, 0.04);
+            transform: translateX(2px);
+        }
+
+        .quiz-option.selected {
+            border-color: var(--brand);
+            background: rgba(79, 70, 229, 0.08);
+            color: #3730a3;
+        }
+
+        .quiz-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #cbd5e1;
+            flex-shrink: 0;
+            margin-left: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .quiz-option.selected .quiz-dot {
+            border-color: var(--brand);
+            background: var(--brand);
+            box-shadow: 0 0 0 3px var(--brand-glow);
+        }
+
+        /* ─── Floating Widget ─── */
+        #floating-compare-widget {
+            background: linear-gradient(135deg, #0f172a, #1e1b4b);
+            border: 1px solid rgba(129, 140, 248, 0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        /* ─── Section Header Divider ─── */
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ─── Accent line ─── */
+        .accent-line {
+            width: 32px;
+            height: 3px;
+            background: linear-gradient(to right, var(--brand), #7c3aed);
+            border-radius: 99px;
+        }
+
+        /* ─── Smooth transitions ─── */
+        .tab-content {
+            transition: opacity 0.2s ease;
+        }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen flex flex-col">
+
+    <!-- ═══ PREMIUM HEADER ═══ -->
+    <header class="relative overflow-hidden"
+        style="background: linear-gradient(160deg, #0f172a 0%, #1e1b4b 40%, #0f172a 100%)">
+        <!-- Ambient blobs -->
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div class="blob absolute top-[-80px] left-[-60px] w-96 h-96 opacity-30"
+                style="background: radial-gradient(circle, #6366f1, transparent 70%)"></div>
+            <div class="blob blob-2 absolute bottom-[-60px] right-[-40px] w-80 h-80 opacity-20"
+                style="background: radial-gradient(circle, #06b6d4, transparent 70%)"></div>
+            <div class="blob absolute top-[20%] right-[25%] w-48 h-48 opacity-10"
+                style="background: radial-gradient(circle, #a78bfa, transparent 70%)"></div>
+        </div>
+        <!-- Grid overlay -->
+        <div class="absolute inset-0 pointer-events-none"
+            style="background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 32px 32px;">
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 py-10 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+                <div class="animate-in">
+                    <!-- Label chip -->
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold mb-5"
+                        style="background: rgba(99,102,241,0.15); border: 1px solid rgba(129,140,248,0.3); color: #a5b4fc;">
+                        <span
+                            style="width:8px;height:8px;border-radius:50%;background:#818cf8;display:inline-block;animation:float 2s ease-in-out infinite"></span>
+                        เครื่องมือวิเคราะห์ส่วนตัวของน้องดาวคนดีคนเก่ง 💗
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white leading-none">
+                        Sedan &amp; SUV
+                        <span class="gradient-text block sm:inline"> Matchmaker</span>
+                    </h1>
+                    <p class="mt-4 text-slate-400 text-sm sm:text-base max-w-xl leading-relaxed">
+                        วิเคราะห์และเปรียบเทียบรถยนต์ <strong class="text-slate-200">งบไม่เกิน 1.2 ล้านบาท</strong>
+                        เพื่อการขับขี่ที่คุ้มค่า ประหยัด และดูแลรักษาง่ายตามโจทย์ชีวิต
+                    </p>
+                </div>
+                <div class="flex flex-col gap-3 animate-in animate-in-delay-2">
+                    <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl"
+                        style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+                        <span class="text-2xl">💰</span>
+                        <div>
+                            <div class="text-[10px] font-bold uppercase tracking-wider" style="color:#94a3b8">งบประมาณ
+                            </div>
+                            <div class="text-sm font-bold text-white">ไม่เกิน 1,200,000 บาท</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2.5 px-4 py-2.5 rounded-2xl"
+                        style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);">
+                        <span class="text-2xl">🎯</span>
+                        <div>
+                            <div class="text-[10px] font-bold uppercase tracking-wider" style="color:#94a3b8">โจทย์หลัก
+                            </div>
+                            <div class="text-sm font-bold text-white">ประหยัด · สบายใจ · กว้างนั่งสบาย</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom fade -->
+        <div class="absolute bottom-0 left-0 right-0 h-px"
+            style="background: linear-gradient(to right, transparent, rgba(99,102,241,0.4), transparent)"></div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8"
+        style="padding-top: 28px; padding-bottom: 48px;">
+
+        <!-- ═══ PILL NAVIGATION TABS ═══ -->
+        <div class="mb-8">
+            <div class="flex items-center gap-1.5 p-1.5 overflow-x-auto"
+                style="background: rgba(255,255,255,0.8); backdrop-filter: blur(12px); border: 1px solid rgba(148,163,184,0.25); border-radius: 99px; width: fit-content; max-width: 100%; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                <button onclick="switchTab('dashboard')" id="tab-dashboard" class="tab-button tab-pill tab-active"
+                    aria-label="สรุปค่าใช้จ่าย">
+                    <span>📊</span><span>สรุปค่าใช้จ่าย</span>
+                </button>
+                <button onclick="switchTab('comparison')" id="tab-comparison" class="tab-button tab-pill"
+                    aria-label="ตารางเปรียบเทียบ">
+                    <span>🔍</span><span>ตารางเปรียบเทียบ</span>
+                </button>
+                <button onclick="switchTab('wizard')" id="tab-wizard" class="tab-button tab-pill"
+                    aria-label="Match Wizard">
+                    <span>🪄</span><span>Match Wizard</span>
+                </button>
+                <button onclick="switchTab('coach')" id="tab-coach" class="tab-button tab-pill"
+                    aria-label="โค้ชตัดสินใจ">
+                    <span>🏆</span><span>โค้ชตัดสินใจ</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ═══ JARGON BUSTER ═══ -->
+        <div class="mb-8 overflow-hidden"
+            style="background: white; border: 1px solid rgba(148,163,184,0.25); border-radius: 18px; box-shadow: var(--shadow-sm);">
+            <button onclick="toggleJargonBuster()"
+                class="w-full flex justify-between items-center px-5 py-4 text-left cursor-pointer select-none"
+                style="background: linear-gradient(135deg, rgba(238,242,255,0.6), rgba(240,253,250,0.4));">
+                <span class="font-bold text-slate-700 flex items-center gap-2 text-sm">
+                    <span
+                        class="w-7 h-7 rounded-full bg-indigo-100 flex items-center justify-center text-base">💡</span>
+                    คู่มือย่อสำหรับมือใหม่ — เข้าใจระบบรถแต่ละประเภทใน 10 วินาที
+                </span>
+                <span class="text-indigo-600 font-bold text-xs flex items-center gap-1"
+                    id="jargon-toggle-btn">ดูคำอธิบาย <span>▾</span></span>
+            </button>
+            <div id="jargon-content" class="hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-slate-100">
+                    <div class="p-5 border-r border-slate-100/80">
+                        <div class="w-8 h-8 rounded-xl badge-hybrid flex items-center justify-center text-lg mb-3">⛽
+                        </div>
+                        <span class="font-bold text-slate-800 block mb-1.5 text-sm">ไฮบริด (HEV)</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">ไม่ต้องเสียบปลั๊กชาร์จไฟ เติมน้ำมันปกติ
+                            รถปั่นไฟเอง <strong
+                                class="text-slate-700">ประหยัดค่าน้ำมันสูงสุด</strong>ในการขับในเมืองและนอกเมือง</p>
+                    </div>
+                    <div class="p-5 border-r border-slate-100/80">
+                        <div class="w-8 h-8 rounded-xl badge-phev flex items-center justify-center text-lg mb-3">🔌
+                        </div>
+                        <span class="font-bold text-slate-800 block mb-1.5 text-sm">ปลั๊กอิน (PHEV)</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">เสียบปลั๊กชาร์จไฟบ้านได้ด้วย
+                            วิ่งด้วยไฟฟ้าล้วนได้ 80-120 กม. <strong
+                                class="text-slate-700">ประหยัดสุดขีด</strong>หากชาร์จทุกคืน</p>
+                    </div>
+                    <div class="p-5 border-r border-slate-100/80">
+                        <div class="w-8 h-8 rounded-xl badge-turbo flex items-center justify-center text-lg mb-3">🏎️
+                        </div>
+                        <span class="font-bold text-slate-800 block mb-1.5 text-sm">เบนซินเทอร์โบ (Turbo)</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">เครื่องยนต์เล็กแต่แรงเทียบเท่าเครื่องใหญ่
+                            <strong class="text-slate-700">เร่งแซงฉับไว</strong> แต่กินน้ำมันมากกว่าไฮบริด</p>
+                    </div>
+                    <div class="p-5">
+                        <div class="w-8 h-8 rounded-xl badge-ice flex items-center justify-center text-lg mb-3">🛡️
+                        </div>
+                        <span class="font-bold text-slate-800 block mb-1.5 text-sm">เบนซินธรรมดา (NA)</span>
+                        <p class="text-xs text-slate-500 leading-relaxed">ระบบดั้งเดิม ไม่มีกลไกซับซ้อน <strong
+                                class="text-slate-700">ทนทานสูงสุด</strong> ค่าซ่อมถูกและง่าย เหมาะระยะยาว 10+ ปี</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 1: DASHBOARD & CALCULATOR -->
+        <section id="content-dashboard" class="space-y-8">
+            <!-- Profile Info Banner -->
+            <div class="flex items-center gap-4 p-4 rounded-2xl"
+                style="background: linear-gradient(135deg, rgba(238,242,255,0.9), rgba(240,253,250,0.8)); border: 1px solid rgba(99,102,241,0.18); box-shadow: 0 2px 12px rgba(99,102,241,0.07);">
+                <div class="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center text-xl"
+                    style="background: linear-gradient(135deg, #6366f1, #4f46e5); box-shadow: 0 4px 12px rgba(79,70,229,0.3);">
+                    🎯</div>
+                <div>
+                    <p class="text-sm font-bold text-indigo-900">โจทย์การใช้รถของคุณ</p>
+                    <p class="text-xs text-indigo-700 mt-0.5 leading-relaxed">เน้น<strong>ประหยัดน้ำมันสูงสุด</strong> ·
+                        ค่าบำรุงรักษาต่ำระยะยาว · พื้นที่ห้องโดยสารนั่งสบาย สำหรับขับขี่ทางไกลข้ามอำเภอ/จังหวัด</p>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Inputs Column -->
+                <div class="p-6 rounded-2xl space-y-6"
+                    style="background: white; border: 1px solid rgba(148,163,184,0.2); box-shadow: var(--shadow-md);">
+                    <div class="pb-3" style="border-bottom: 1px solid rgba(148,163,184,0.15);">
+                        <div class="flex items-center gap-2.5 mb-1">
+                            <div class="w-8 h-8 rounded-xl flex items-center justify-center text-base flex-shrink-0"
+                                style="background: linear-gradient(135deg, #eef2ff, #e0e7ff);">⚙️</div>
+                            <h3 class="text-base font-bold text-slate-900">ปรับพฤติกรรมการใช้งาน</h3>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-0.5 ml-10">
+                            คำนวณระยะทางและค่าน้ำมันอัตโนมัติตามการขับขี่ของคุณ</p>
+                    </div>
+
+                    <!-- Presets Selector -->
+                    <div class="space-y-2">
+                        <label
+                            class="block text-xs font-semibold text-slate-500 uppercase tracking-wider">เลือกโปรไฟล์การขับขี่ด่วน
+                            (Presets):</label>
+                        <div class="grid grid-cols-3 gap-1.5">
+                            <button onclick="applyPreset('city')"
+                                class="preset-btn px-2 py-1.5 text-[11px] font-bold border border-slate-250 rounded-lg text-slate-650 hover:bg-slate-50 hover:border-slate-400 transition-all text-center">
+                                🚗 ในเมืองใกล้ๆ
+                            </button>
+                            <button onclick="applyPreset('commute')"
+                                class="preset-btn px-2 py-1.5 text-[11px] font-bold border border-indigo-600 bg-indigo-50/50 rounded-lg text-indigo-700 hover:bg-indigo-100/50 transition-all text-center"
+                                id="default-preset">
+                                🛣️ วิ่งทำงานทั่วไป
+                            </button>
+                            <button onclick="applyPreset('long')"
+                                class="preset-btn px-2 py-1.5 text-[11px] font-bold border border-slate-250 rounded-lg text-slate-650 hover:bg-slate-50 hover:border-slate-400 transition-all text-center">
+                                🌾 ข้ามอำเภอ/จังหวัด
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-slate-100/70 my-4"></div>
+
+                    <!-- Commute slider -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <label for="commute-dist" class="text-slate-650">ระยะขับรถ ไป-กลับทำงาน (กม./วัน):</label>
+                            <span class="text-indigo-650 font-bold" id="commute-val">30 กม.</span>
+                        </div>
+                        <input type="range" id="commute-dist" min="5" max="150" value="30"
+                            class="w-full h-1.5 bg-slate-250 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+                    </div>
+
+                    <!-- Workdays slider -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <label for="work-days" class="text-slate-650">วันทำงานทำงานเฉลี่ย (วัน/เดือน):</label>
+                            <span class="text-indigo-650 font-bold" id="days-val">22 วัน</span>
+                        </div>
+                        <input type="range" id="work-days" min="10" max="31" value="22"
+                            class="w-full h-1.5 bg-slate-250 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+                    </div>
+
+                    <!-- City trip count -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <label for="city-trips" class="text-slate-650">ขับไปทำธุระ/เข้าเมือง (ครั้ง/เดือน):</label>
+                            <span class="text-indigo-650 font-bold" id="trips-val">3 ครั้ง</span>
+                        </div>
+                        <input type="range" id="city-trips" min="0" max="15" value="3"
+                            class="w-full h-1.5 bg-slate-250 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+                    </div>
+
+                    <!-- City trip distance -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <label for="city-dist" class="text-slate-650">ระยะทางไป-กลับธุระเมือง (กม./ครั้ง):</label>
+                            <span class="text-indigo-650 font-bold" id="city-dist-val">100 กม.</span>
+                        </div>
+                        <input type="range" id="city-dist" min="20" max="300" value="100"
+                            class="w-full h-1.5 bg-slate-250 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+                    </div>
+
+                    <!-- Fuel Price -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <label for="fuel-price" class="text-slate-650">ราคาน้ำมันคาดการณ์ (บาท/ลิตร):</label>
+                            <span class="text-indigo-650 font-bold" id="fuel-val">38 บาท</span>
+                        </div>
+                        <input type="range" id="fuel-price" min="30" max="55" value="38" step="0.5"
+                            class="w-full h-1.5 bg-slate-250 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+                    </div>
+
+                    <div
+                        class="bg-indigo-50/50 p-4 rounded-xl text-xs space-y-2 border border-indigo-100/50 text-slate-600">
+                        <div class="flex justify-between font-semibold">
+                            <span class="text-slate-500 font-medium">สูตรระยะทางรวม:</span>
+                            <span class="font-mono text-slate-700">(กม.ทำงาน &times; วันทำงาน) + (ธุระ &times;
+                                ระยะทางธุระ)</span>
+                        </div>
+                        <div class="flex justify-between items-baseline pt-1 border-t border-indigo-100/30">
+                            <span class="text-slate-700">ระยะทางรวมที่วิ่งจริง:</span>
+                            <span><span class="font-extrabold text-indigo-700 text-sm" id="calc-total-dist">960</span>
+                                กม./เดือน</span>
+                        </div>
+                    </div>
+
+                    <!-- Finance Calculator Section -->
+                    <div class="border-t border-slate-200/80 pt-4 space-y-4">
+                        <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                            <span>💰</span> คำนวณดาวน์ & ผ่อนรายเดือน (คำนวณจากรุ่นเริ่มต้น)
+                        </h4>
+
+                        <!-- Down payment pct slider -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-semibold">
+                                <label for="down-pct" class="text-slate-655">เงินดาวน์ (% ของราคารถ):</label>
+                                <span class="text-indigo-650 font-bold" id="down-pct-val">20%</span>
+                            </div>
+                            <input type="range" id="down-pct" min="10" max="50" value="20" step="5"
+                                class="w-full h-1.5 bg-slate-250 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+                        </div>
+
+                        <!-- Pay term dropdown -->
+                        <div class="space-y-2">
+                            <label for="finance-months"
+                                class="block text-xs font-semibold text-slate-655">ระยะเวลาการผ่อนชำระ:</label>
+                            <select id="finance-months"
+                                class="w-full text-xs font-semibold text-slate-700 bg-slate-50 border border-slate-250 rounded-lg p-2 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-600 outline-none">
+                                <option value="48">48 เดือน (4 ปี)</option>
+                                <option value="60" selected>60 เดือน (5 ปี)</option>
+                                <option value="72">72 เดือน (6 ปี)</option>
+                                <option value="84">84 เดือน (7 ปี)</option>
+                            </select>
+                        </div>
+
+                        <!-- Interest rate slider -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs font-semibold">
+                                <label for="interest-rate" class="text-slate-655">อัตราดอกเบี้ย (% ต่อปี):</label>
+                                <span class="text-indigo-650 font-bold" id="interest-rate-val">2.5%</span>
+                            </div>
+                            <input type="range" id="interest-rate" min="1.0" max="6.0" value="2.5" step="0.1"
+                                class="w-full h-1.5 bg-slate-250 rounded-lg appearance-none cursor-pointer accent-indigo-600">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculator Results Column -->
+                <div class="lg:col-span-2 flex flex-col justify-between p-6 rounded-2xl"
+                    style="background: white; border: 1px solid rgba(148,163,184,0.2); box-shadow: var(--shadow-md);">
+                    <div>
+                        <div class="flex justify-between items-center mb-6 pb-4"
+                            style="border-bottom: 1px solid rgba(148,163,184,0.15);">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl flex items-center justify-center text-base flex-shrink-0"
+                                    style="background: linear-gradient(135deg, #eef2ff, #e0e7ff);">📊</div>
+                                <h3 class="text-base font-bold text-slate-900">ประมาณการค่าน้ำมันเฉลี่ยรายเดือน</h3>
+                            </div>
+                            <span
+                                class="text-[10px] text-slate-400 font-medium hidden sm:block">*อ้างอิงอัตราสิ้นเปลืองขับขี่จริงเลนโล่ง</span>
+                        </div>
+
+                        <!-- Bar chart container generated dynamically -->
+                        <div id="cost-bars-container" class="space-y-4">
+                            <!-- JS Will render bars here -->
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 rounded-xl text-xs text-slate-500 leading-relaxed space-y-1 p-4"
+                        style="border: 1px solid rgba(148,163,184,0.15); background: rgba(248,250,252,0.7); border-top: 1px solid rgba(148,163,184,0.2);">
+                        <p class="font-bold text-slate-700 flex items-center gap-1.5"><span>📌</span> หมายเหตุสูตรคำนวณ:
+                        </p>
+                        <ul class="list-disc pl-4 space-y-0.5 mt-1">
+                            <li><strong>BYD Seal 5 DM-i (PHEV):</strong> เป็นตัวเลขการใช้น้ำมันไฮบริดล้วน (HEV Mode)
+                                ในกรณี <u>ไม่ได้เสียบชาร์จไฟฟ้าเลย</u> เพื่อความเปรียบเทียบที่เป็นธรรม</li>
+                            <li><strong>อัตราสิ้นเปลืองขับขี่จริง:</strong> ปรับทอนค่าโรงงาน (Eco Sticker) ลงประมาณ
+                                10-15% เพื่อให้ตรงกับการขับขี่จริงต่างจังหวัด</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TCO and Break-even Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8 animate-in animate-in-delay-1">
+                <!-- 1. TCO 5/10 Years -->
+                <div class="p-6 rounded-2xl flex flex-col justify-between" style="background: white; border: 1px solid rgba(148,163,184,0.2); box-shadow: var(--shadow-md);">
+                    <div>
+                        <div class="flex justify-between items-center mb-6 pb-4" style="border-bottom: 1px solid rgba(148,163,184,0.15);">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl flex items-center justify-center text-base flex-shrink-0" style="background: linear-gradient(135deg, #eef2ff, #e0e7ff);">💳</div>
+                                <h3 class="text-base font-bold text-slate-900">ค่าใช้จ่ายสะสมระยะยาว (TCO)</h3>
+                            </div>
+                            <select id="tco-years" onchange="updateDashboard()" class="text-xs font-semibold text-slate-700 bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 outline-none">
+                                <option value="5" selected>สะสม 5 ปี</option>
+                                <option value="10">สะสม 10 ปี</option>
+                            </select>
+                        </div>
+                        <div id="tco-bars-container" class="space-y-4">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-3 text-[10px] text-slate-450 leading-relaxed font-medium">
+                        *คำนวณจาก: ราคารถรุ่นย่อยที่เลือก + ค่าน้ำมันสะสม + ค่าประกันภัยสะสม + ค่าเช็กระยะสะสม
+                    </div>
+                </div>
+
+                <!-- 2. Break-even Calculator -->
+                <div class="p-6 rounded-2xl flex flex-col justify-between" style="background: white; border: 1px solid rgba(148,163,184,0.2); box-shadow: var(--shadow-md);">
+                    <div>
+                        <div class="flex justify-between items-center mb-6 pb-4" style="border-bottom: 1px solid rgba(148,163,184,0.15);">
+                            <div class="flex items-center gap-2.5">
+                                <div class="w-8 h-8 rounded-xl flex items-center justify-center text-base flex-shrink-0" style="background: linear-gradient(135deg, #eef2ff, #e0e7ff);">⚖️</div>
+                                <h3 class="text-base font-bold text-slate-900">เครื่องวิเคราะห์จุดคุ้มทุน (Break-even)</h3>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">รถคันที่ 1 (เทียบคืนทุน):</label>
+                                <select id="be-car-1" onchange="calculateBreakEven()" class="w-full text-xs font-semibold text-slate-750 bg-slate-50 border border-slate-250 rounded-lg p-2 outline-none">
+                                    <!-- Rendered dynamically by JS -->
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">รถคันที่ 2 (เทียบเป็นฐาน):</label>
+                                <select id="be-car-2" onchange="calculateBreakEven()" class="w-full text-xs font-semibold text-slate-750 bg-slate-50 border border-slate-250 rounded-lg p-2 outline-none">
+                                    <!-- Rendered dynamically by JS -->
+                                </select>
+                            </div>
+                        </div>
+                        <div id="be-result-container" class="mt-4 p-4 rounded-xl text-xs" style="background: linear-gradient(135deg, rgba(238,242,255,0.6), rgba(240,253,250,0.4)); border: 1px solid rgba(99,102,241,0.15);">
+                            <!-- Rendered by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Car Cards Section -->
+            <div class="space-y-5">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900">ตัวเลือกรถยนต์ทั้งหมด <span id="cars-count-badge"
+                                class="inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-bold ml-1"
+                                style="background: linear-gradient(135deg,#6366f1,#4f46e5); color: white; box-shadow: var(--shadow-brand);">11</span>
+                        </h2>
+                        <div class="accent-line mt-2"></div>
+                    </div>
+                    <p class="text-xs text-slate-500">✅ ติ๊กเลือกเพื่อนำไปเปรียบเทียบในตารางเจาะลึก (เลือกได้สูงสุด 3
+                        คัน)</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="summary-cards-container">
+                    <!-- Cards will be populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: DETAILED COMPARISON TABLE -->
+        <section id="content-comparison" class="hidden space-y-6">
+
+            <!-- Quick Compare Board -->
+            <div id="compare-board-section"
+                class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hidden space-y-4">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                    <h3 class="text-base font-bold text-indigo-900 flex items-center gap-2">
+                        ⚖️ <span>เปรียบเทียบด้านต่อด้านเฉพาะรุ่นที่คุณเลือก</span>
+                    </h3>
+                    <button onclick="clearSelectedCompare()"
+                        class="text-xs text-rose-600 hover:text-rose-800 font-bold flex items-center gap-1">
+                        🧹 ล้างการเปรียบเทียบ
+                    </button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table
+                        class="min-w-full divide-y divide-slate-250 table-fixed text-sm border border-slate-200 rounded-xl overflow-hidden">
+                        <thead class="bg-slate-55" id="compare-board-head">
+                            <!-- JS injected heads -->
+                        </thead>
+                        <tbody class="bg-white divide-y divide-slate-200" id="compare-board-body">
+                            <!-- JS injected rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+                <div
+                    class="px-6 py-4 bg-slate-900 text-white flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                    <div>
+                        <h3 class="text-base font-bold">ตารางวิเคราะห์ความต่างแบบเจาะลึก 360 องศา</h3>
+                        <p class="text-xs text-slate-400 mt-0.5">
+                            วิเคราะห์สเปกอย่างละเอียดตามโจทย์เพื่อการวิเคราะห์ทางไกลและบำรุงรักษา</p>
+                    </div>
+                    <span
+                        class="self-start sm:self-auto px-2.5 py-1 bg-slate-800 text-slate-350 text-xs rounded-full border border-slate-700">อัปเดตข้อมูลปี
+                        2026</span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-slate-200 text-left border-collapse text-sm">
+                        <thead class="bg-slate-50">
+                            <tr>
+                                <th scope="col"
+                                    class="px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider sticky left-0 bg-slate-50 z-10 border-r border-slate-200">
+                                    เลือก / ชื่อรุ่น</th>
+                                <th scope="col"
+                                    class="px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                    ช่วงราคาขายจริง</th>
+                                <th scope="col"
+                                    class="px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                    ชนิดขุมพลัง & สิ้นเปลือง</th>
+                                <th scope="col"
+                                    class="px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                    ความกว้างเบาะ/หลังคา</th>
+                                <th scope="col"
+                                    class="px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                    ค่าซ่อมระยะยาว (แสนโลขึ้น)</th>
+                                <th scope="col"
+                                    class="px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                    บริการต่างจังหวัด</th>
+                                <th scope="col"
+                                    class="px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                    ระบบความปลอดภัยหลัก</th>
+                                <th scope="col"
+                                    class="px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                    การรับประกัน & อะไหล่</th>
+                                <th scope="col"
+                                    class="px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider text-center">
+                                    ความคุ้มค่าตามโจทย์</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-slate-200 text-slate-700" id="spec-table-body">
+                            <!-- Will be injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div
+                class="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-100/60 p-6 rounded-2xl border border-slate-200/50">
+                <div class="space-y-2">
+                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                        <span>💡</span> วิธีนำตารางไปประกอบการพิจารณา:
+                    </h4>
+                    <p class="text-xs text-slate-650 leading-relaxed">
+                        เนื่องจากเป้าหมายของคุณคือความสะดวกและค่าบำรุงรักษาในระยะยาวที่สบายใจเมื่อใช้ในต่างจังหวัด
+                        ควรดูองค์ประกอบ <strong>"ค่าซ่อมบำรุงระยะยาว"</strong> และ
+                        <strong>"ศูนย์บริการในอำเภอ/จังหวัดรอง"</strong> ประกอบเป็นปัจจัยสำคัญหลัก
+                        ก่อนพิจารณาอัตราประหยัดน้ำมันจริงครับ
+                    </p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                        <span>⚡</span> ข้อเท็จจริงของกลุ่มเกียร์และสายพาน:
+                    </h4>
+                    <p class="text-xs text-slate-650 leading-relaxed">
+                        รุ่นที่เป็นเครื่องยนต์เบนซิน 1.0 เทอร์โบ (Almera, City Turbo)
+                        แซงดีเร่งสนุกแต่อัตรากินน้ำมันในรอบสูงจะค่อนข้างมาก และเกียร์ประเภท CVT ที่ต้องรองรับแรงบิดสูง
+                        รวมถึงสายพานในแช่น้ำมันเครื่อง จะต้องได้รับการเช็กและเปลี่ยนถ่ายน้ำมันเครื่องที่ตรงสเปกอย่างสูง
+                        และมีค่าเปลี่ยนชุดเกียร์เมื่อหมดอายุมูลค่าสูงกว่าเกียร์ปกติทั่วไป
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: SMART MATCH WIZARD -->
+        <section id="content-wizard" class="hidden">
+            <div class="max-w-2xl mx-auto bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+                <div class="p-6 bg-slate-900 text-white text-center">
+                    <h3 class="text-lg font-bold">🪄 ค้นหารถยนต์ที่ตอบความคุ้มค่าที่สุดของคุณ</h3>
+                    <p class="text-xs text-slate-400 mt-2">ตอบคำถาม 3 ข้อสั้นๆ ระบบจะคำนวณคะแนนตามสไตล์ชีวิตจริง</p>
+                </div>
+
+                <div class="p-6 space-y-6" id="quiz-container">
+
+                    <!-- Progress Bar Indicator -->
+                    <div class="w-full bg-slate-100 rounded-full h-1" id="quiz-progress-bar">
+                        <div class="bg-indigo-650 h-full rounded-full transition-all duration-300" style="width: 33%">
+                        </div>
+                    </div>
+
+                    <div id="q1" class="space-y-4">
+                        <label class="block text-sm font-bold text-slate-800 leading-relaxed">
+                            1. ในฐานะที่ใช้งานต่างจังหวัด
+                            คุณกังวลเรื่องศูนย์ซ่อมบำรุงและระบบมอเตอร์/แบตเตอรี่ไฮบริดในระยะยาว 8-10 ปีมากน้อยแค่ไหน?
+                        </label>
+                        <div class="grid grid-cols-1 gap-2.5">
+                            <button onclick="answerQuestion(1, 'worry-high')" class="quiz-btn quiz-option" data-q="1"
+                                data-val="worry-high">
+                                <span>🔒 กังวลมาก: ต้องการกลไกธรรมดาที่ช่างทั่วไปซ่อมได้ อะไหล่หาง่าย
+                                    ไม่มีระบบไฟฟ้าแรงสูงมาเกี่ยวข้อง</span>
+                                <span class="quiz-dot"></span>
+                            </button>
+                            <button onclick="answerQuestion(1, 'worry-med')" class="quiz-btn quiz-option" data-q="1"
+                                data-val="worry-med">
+                                <span>📈 กังวลบ้าง: แต่ยอมรับได้ถ้ามีการประกันแบตเตอรี่และระบบไฮบริดยาวนาน 10 ปี
+                                    จากแบรนด์หลัก</span>
+                                <span class="quiz-dot"></span>
+                            </button>
+                            <button onclick="answerQuestion(1, 'worry-low')" class="quiz-btn quiz-option" data-q="1"
+                                data-val="worry-low">
+                                <span>🚀 แทบไม่กังวล:
+                                    พร้อมแลกความกังวลกับความประหยัดเชื้อเพลิงสูงสุดและฟังก์ชันที่ให้ความสะดวกสบายเต็มที่</span>
+                                <span class="quiz-dot"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div id="q2" class="space-y-4 hidden">
+                        <label class="block text-sm font-bold text-slate-800 leading-relaxed">
+                            2. ลักษณะการขับขี่และการออกต่างจังหวัด/การแซงสองเลนสวนกัน เป็นอย่างไร?
+                        </label>
+                        <div class="grid grid-cols-1 gap-2.5">
+                            <button onclick="answerQuestion(2, 'style-chill')" class="quiz-btn quiz-option" data-q="2"
+                                data-val="style-chill">
+                                <span>🐢 ขับเรื่อยๆ ชิลๆ: ความเร็วประมาณ 90-110 กม./ชม. ค่อยๆ แซง เน้นขับขี่ปลอดภัย
+                                    ไม่เหยียบกระชาก</span>
+                                <span class="quiz-dot"></span>
+                            </button>
+                            <button onclick="answerQuestion(2, 'style-active')" class="quiz-btn quiz-option" data-q="2"
+                                data-val="style-active">
+                                <span>🦁 ขับกระฉับกระเฉง: ต้องการกำลังเร่งแซงฉับไวโดยไม่ต้องรอลุ้นเวลาเดินทางข้ามอำเภอ
+                                    ถนนเลนสวนต้องแซงขาดมั่นใจ</span>
+                                <span class="quiz-dot"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div id="q3" class="space-y-4 hidden">
+                        <label class="block text-sm font-bold text-slate-800 leading-relaxed">
+                            3. คุณสะดวกและมีความพร้อมที่จะติดตั้งระบบปลั๊กชาร์จไฟข้ามคืนที่บ้าน
+                            และอยากเปิดรับเทคโนโลยีจากแบรนด์น้องใหม่หรือไม่?
+                        </label>
+                        <div class="grid grid-cols-1 gap-2.5">
+                            <button onclick="answerQuestion(3, 'charge-no')" class="quiz-btn quiz-option" data-q="3"
+                                data-val="charge-no">
+                                <span>❌ ไม่สะดวก/ไม่อยากชาร์จ: สะดวกเติมแต่น้ำมันล้วนตามปั๊มเท่านั้น
+                                    เพื่อความคล่องตัวและไม่ยุ่งยากเรื่องเดินสายไฟ</span>
+                                <span class="quiz-dot"></span>
+                            </button>
+                            <button onclick="answerQuestion(3, 'charge-yes')" class="quiz-btn quiz-option" data-q="3"
+                                data-val="charge-yes">
+                                <span>🔌 ยินดีชาร์จไฟที่บ้าน: พร้อมติด Wallbox เสียบชาร์จข้ามคืน
+                                    แลกกับพื้นที่รถระดับตัวถังใหญ่และลดค่าเดินทางสุดขีด</span>
+                                <span class="quiz-dot"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Navigation and Result Area -->
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center text-xs" id="quiz-nav">
+                        <span class="text-slate-450 font-semibold" id="quiz-step">คำถามข้อที่ 1 จาก 3</span>
+                        <button onclick="resetQuiz()"
+                            class="text-indigo-650 hover:text-indigo-800 font-bold underline focus:outline-none hidden"
+                            id="btn-reset">
+                            ↩️ เริ่มต้นใหม่อีกครั้ง
+                        </button>
+                    </div>
+
+                    <!-- Result Panel -->
+                    <div id="quiz-result" class="hidden space-y-6">
+                        <div class="bg-indigo-50/70 border border-indigo-200 p-6 rounded-2xl text-center space-y-2">
+                            <span class="text-3xl">🥇</span>
+                            <h4 class="text-base font-bold text-indigo-950">รุ่นที่คำนวณแล้วเหมาะกับคุณที่สุด!</h4>
+                            <p class="text-[11px] text-indigo-650">ผลการวิเคราะห์เปรียบเทียบตามคำตอบโจทย์พฤติกรรมของคุณ
+                            </p>
+                            <p id="top-match-text" class="text-xl font-extrabold text-slate-900 pt-2"></p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <h5 class="text-xs font-bold text-slate-500 uppercase tracking-wider">
+                                เปอร์เซ็นต์ความเหมาะสมของทุกรุ่น:</h5>
+                            <div class="space-y-3" id="score-breakdown">
+                                <!-- JS Injected score bars -->
+                            </div>
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 text-center">
+                            <button onclick="resetQuiz()"
+                                class="text-xs text-indigo-650 hover:text-indigo-800 font-bold underline">
+                                ↩️ ทำแบบประเมินใหม่อีกครั้ง
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: EDITOR COACH VERDICT -->
+        <section id="content-coach" class="hidden space-y-8">
+            <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/80 shadow-sm space-y-6">
+                <div class="flex items-center gap-4 border-b border-slate-100 pb-4">
+                    <div class="bg-indigo-50 text-indigo-600 p-3 rounded-xl border border-indigo-100/40">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900">สรุปการตัดสินใจซื้ออย่างตรงไปตรงมา</h3>
+                        <p class="text-xs text-slate-400">
+                            บทวิเคราะห์ช่วยเลือกซื้อโดยประเมินตามพฤติกรรมการเดินทางต่างจังหวัด</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-650 leading-relaxed">
+                    <div class="space-y-4">
+                        <h4
+                            class="font-bold text-slate-900 text-sm flex items-center gap-1.5 border-b border-slate-100 pb-1.5">
+                            📌 <span>กลุ่มเน้นประหยัด เดินทางไกลสบายใจสุด</span>
+                        </h4>
+                        <p>
+                            หากโจทย์หลักของคุณคือขับทำงาน ไป-กลับวันละหลายกิโลเมตร
+                            วิ่งถนนเลนสวนต่างจังหวัดต้องการแซงขาดปลอดภัย ช่วงล่างสู้หลุมทางชำรุดได้ดี
+                            และนั่งสบายไม่เมื่อยล้า <strong>Honda City e:HEV</strong>
+                            จะเป็นคำตอบที่ยอดเยี่ยมที่สุดในกลุ่ม การทำงานมอเตอร์คู่ตอบสนองฉับไว
+                            ขับสนุกพ่วงด้วยอัตราสิ้นเปลืองที่สูสีกับ Ativ
+                        </p>
+                        <p
+                            class="bg-amber-50 border-l-4 border-amber-600 p-3 rounded-r-xl text-xs text-amber-900 leading-relaxed">
+                            <strong>หมายเหตุสำคัญ:</strong> ราคารุ่นท็อปเกือบแตะงบ 800,000 บาท
+                            แต่อัตราประหยัดและการดูแลในศูนย์บริการฮอนด้าถือว่าอยู่ในระดับมาตรฐานที่ดี
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h4
+                            class="font-bold text-slate-900 text-sm flex items-center gap-1.5 border-b border-slate-100 pb-1.5">
+                            📌 <span>กลุ่มประหยัด เน้นความทนทาน ซ่อมง่ายระยะ 10 ปีขึ้นไป</span>
+                        </h4>
+                        <p>
+                            ถ้าความรู้สึกในการซ่อมบำรุงรถเป็นเรื่องกังวลใจ ต้องการศูนย์บริการใกล้บ้าน
+                            ช่างทึ่วิ่งไปที่ไหนก็ซ่อมได้ อะไหล่ถูกระดับเซียงกง <strong>Toyota Yaris Ativ (1.2
+                                เบนซินล้วน)</strong> คือที่หนึ่งในใจ เครื่องยนต์เบนซิน 1.2 ลิตรไม่มีแบตเตอรี่ไฮบริด
+                            มอเตอร์ หรือเทอร์โบมาเกี่ยวข้อง ความจุกจิกจึงเป็นศูนย์ ซ่อมถูก
+                            และราคาซื้อเริ่มต้นประหยัดเงินทอนได้หลักแสนบาท
+                        </p>
+                        <p
+                            class="bg-indigo-50 border-l-4 border-indigo-600 p-3 rounded-r-xl text-xs text-indigo-900 leading-relaxed">
+                            <strong>หมายเหตุสำคัญ:</strong> อัตราเร่งจะค่อนข้างหนืดในการเร่งแซงทางชันหรือถนนเลนสวน
+                            ต้องกะระยะเพิ่มขึ้นเพื่อความปลอดภัย
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border-t border-slate-200/60 pt-6">
+                    <h4 class="font-bold text-slate-900 text-sm mb-4 text-center">🎯 ทิศทางของอีก 9
+                        รุ่นที่เหลือก่อนตัดตัวเลือก</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                            <h5 class="font-bold text-xs text-slate-900">1. Toyota Ativ HEV</h5>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">
+                                ลูกผสมที่ลงตัวที่สุดสำหรับคนต่างจังหวัดที่อยากประหยัดค่าน้ำมันแต่ไม่อยากเสี่ยงค่าซ่อมแบรนด์อื่น
+                                ได้จุดแข็งบริการโตโยต้าพร้อมระบบประหยัดเชื้อเพลิง</p>
+                        </div>
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                            <h5 class="font-bold text-xs text-slate-900">2. BYD Seal 5 DM-i</h5>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">หรูหราตัวถังใหญ่ที่สุด นุ่มสบาย
+                                แต่ติดปัญหาเรื่องความยากในการดูแลซ่อมแซมแบรนด์ใหม่กรณีฉุกเฉินในเขตต่างจังหวัดห่างไกล</p>
+                        </div>
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                            <h5 class="font-bold text-xs text-slate-900">3. Honda City 1.0 Turbo</h5>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">แรงมาก ขับสนุก
+                                แต่การบริโภคน้ำมันดุเดือดสุดในกลุ่ม และมีค่าสายพานท่อร่วมน้ำมันเครื่องระยะยาวค่อนข้างสูง
+                                ไม่เหมาะกับคนขับเยอะเดินทางไกล</p>
+                        </div>
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                            <h5 class="font-bold text-xs text-slate-900">4. Nissan Almera 1.0T</h5>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">ราคาตัวรถคุ้มค่า
+                                ได้ออปชันที่ดีและพื้นที่เบาะหลังกว้างขวาง แต่เกียร์ CVT
+                                เทอร์โบมีระยะบำรุงรักษาสั้นกว่ากลุ่มเบนซินธรรมดา</p>
+                        </div>
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                            <h5 class="font-bold text-xs text-slate-900">5. Toyota Yaris Cross</h5>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">อเนกประสงค์ยกสูงสไตล์ B-SUV
+                                ยอดนิยม ประหยัดน้ำมัน ลุยน้ำท่วมขังและทางขรุขระต่างจังหวัดได้ดี ตัวท็อปไม่เกิน 1 ล้านบาท
+                            </p>
+                        </div>
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                            <h5 class="font-bold text-xs text-slate-900">6. Honda City HB e:HEV</h5>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">ท้ายตัด 5 ประตูสุดอเนกประสงค์
+                                พับเบาะได้ราบอิสระ ประหยัดน้ำมันไฮบริด ขับสนุก คล่องตัวในเมืองและเดินทางไกล</p>
+                        </div>
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                            <h5 class="font-bold text-xs text-slate-900">7. Toyota Corolla Cross</h5>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">C-SUV ไฮบริดตัวถังใหญ่นุ่มสบาย
+                                ห้องโดยสารโปร่งทัศนวิสัยเด่น ความทนทานระดับตำนาน อะไหล่หาง่ายดูแลสบายใจ</p>
+                        </div>
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                            <h5 class="font-bold text-xs text-slate-900">8. Honda HR-V e:HEV</h5>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">SUV ดีไซน์สปอร์ตโฉบเฉี่ยว
+                                อัตราเร่งมอเตอร์คู่ตอบสนองฉับไว ขับสนุก พร้อมเบาะอเนกประสงค์ปรับได้หลากหลายแบบ</p>
+                        </div>
+                        <div class="p-4 border border-slate-200 rounded-xl bg-slate-50">
+                            <h5 class="font-bold text-xs text-slate-900">9. Mitsubishi Xforce HEV</h5>
+                            <p class="text-[11px] text-slate-500 mt-1.5 leading-relaxed">B-SUV ไฮบริดตัวใหม่ ออปชันแน่น
+                                เครื่องเสียง Yamaha เสียงดีมาก โหมดขับขี่ 7 โหมดพร้อมลุยทางเปียกน้ำท่วมขังเด่น
+                                แต่เป็นแบรนด์รองในการซ่อมบำรุงระยะยาว</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Compare Widget -->
+    <div id="floating-compare-widget"
+        class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-950 text-white px-5 py-3 rounded-full shadow-2xl flex items-center gap-4 z-50 border border-slate-800 transition-all duration-300 translate-y-24 opacity-0">
+        <span class="text-xs font-semibold text-slate-350" id="compare-widget-text">เลือกแล้ว 0 รุ่น</span>
+        <div class="h-4 w-px bg-slate-800"></div>
+        <button onclick="triggerComparisonTab()"
+            class="text-xs bg-indigo-650 hover:bg-indigo-700 px-3.5 py-1.5 rounded-full font-bold transition-colors">
+            เปรียบเทียบข้อมูลทันที
+        </button>
+    </div>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer style="background: linear-gradient(160deg, #0f172a, #1e1b4b); border-top: 1px solid rgba(99,102,241,0.15);"
+        class="text-slate-400 mt-16 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div class="text-center sm:text-left">
+                    <p class="font-bold text-white text-sm">Sedan &amp; SUV Matchmaker</p>
+                    <p class="text-xs mt-1 text-slate-500">วิเคราะห์ความเหมาะสมรถยนต์ งบ ≤ 1,200,000 บาท — อัปเดตปี 2026
+                    </p>
+                </div>
+                <div class="flex gap-3">
+                    <span class="px-3 py-1.5 rounded-full text-xs font-semibold"
+                        style="background: rgba(99,102,241,0.15); border: 1px solid rgba(129,140,248,0.2); color: #a5b4fc;">11
+                        รุ่น</span>
+                    <span class="px-3 py-1.5 rounded-full text-xs font-semibold"
+                        style="background: rgba(16,185,129,0.12); border: 1px solid rgba(52,211,153,0.2); color: #6ee7b7;">ข้อมูลจริงปี
+                        2026</span>
+                </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.05);"
+                class="mt-6 pt-6 text-center text-[11px] text-slate-600">
+                © 2026 · สร้างด้วย ❤️ เพื่อน้องดาวคนดีคนเก่ง · ข้อมูลอ้างอิงจาก Headlightmag, Pantip,
+                เว็บไซต์จัดทำโดยพี่บอสของหนูดาว
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Data Store for the 10 models
+        const cars = [
+            {
+                id: "ativ-hev",
+                name: "Toyota Yaris Ativ HEV",
+                sub: "ไฮบริดขวัญใจคนต่างจังหวัด",
+                price: "729,000 - 779,000 บาท",
+                minPrice: 729000,
+                economy: 25.5, // Realistic km/L
+                maintenance: "ต่ำ-ปานกลาง (อะไหล่ถูก วิ่งทน รับประกันแบต 10 ปี)",
+                space: "กว้างขวาง แผงคอนโซลหรูหรา วางขาสบาย",
+                pros: "ประหยัดน้ำมันระดับแถวหน้า, ศูนย์บริการครอบคลุมแทบทุกอำเภอ",
+                cons: "คันเร่งมานุ่มนวล ขับซิ่งอาจไม่เร่งแซงทันใจนัก",
+                suitability: "9.5/10",
+                type: "hybrid",
+                maintScore: 4,
+                comfortScore: 4,
+                driveSystem: "ไฮบริด (HEV)",
+                centerScore: "🟢 ยอดเยี่ยม (เกือบทุกอำเภอ)",
+                engine: "เบนซิน 1.5 ลิตร (2NR-VEX) + มอเตอร์ไฟฟ้า กำลังรวม 111 แรงม้า, เกียร์ e-CVT, แบตเตอรี่ Lithium-ion 0.7 kWh",
+                safety: "Toyota Safety Sense (ระบบเตือนชน/เบรกอัตโนมัติ, เตือนออกเลน, ควบคุมความเร็วแปรผัน ACC), ถุงลม 6 ตำแหน่ง",
+                warranty: "รับประกันคุณภาพรถ 3 ปี/100,000 กม. | แบตเตอรี่ไฮบริด 10 ปี, ระบบไฮบริด 5 ปี (ไม่จำกัดระยะทาง)",
+                recommendationBadge: "⛽ ประหยัดสูงสุด",
+                perfRating: 3,
+                maintRating: 4,
+                spaceRating: 4,
+                maintCost100k: 30400,
+                insuranceCost: 17500,
+                image: "https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/2022_Toyota_Yaris_Ativ_Premium_Luxury_%28Thailand%29_front_view.png/640px-2022_Toyota_Yaris_Ativ_Premium_Luxury_%28Thailand%29_front_view.png",
+                colors: [
+                    { name: "Platinum White Pearl", hex: "#f8f9fa" },
+                    { name: "Attitude Black Mica", hex: "#1a1a1a" },
+                    { name: "Metal Stream Metallic", hex: "#8a9597" },
+                    { name: "Red Mica Metallic", hex: "#b81d24" },
+                    { name: "Gray Metallic", hex: "#5a5e62" }
+                ],
+                variants: [
+                    { name: "HEV Smart", price: 729000, specs: "รุ่นเริ่มต้น: ล้อ 16\", จอสัมผัส 9\", ระบบเตือนชนและเบรกอัตโนมัติ" },
+                    { name: "HEV Premium", price: 779000, specs: "รุ่นท็อป: เพิ่มกล้องมองรอบคัน, ระบบเบรกมือไฟฟ้า Auto Brake Hold, ระบบเตือนมุมอับสายตา BSM" }
+                ]
+            },
+            {
+                id: "byd-seal5",
+                name: "BYD Seal 5 DM-i Super PHEV",
+                sub: "ปลั๊กอินซีดานขนาด C-Segment ตัวถังใหญ่",
+                price: "599,900 - 699,900 บาท",
+                minPrice: 599900,
+                economy: 22.0, // Realistic hybrid mode without charging
+                maintenance: "ปานกลาง-สูง (แบรนด์ใหม่ ระบบไฟฟ้า PHEV อะไหล่รอนาน)",
+                space: "ใหญ่ที่สุดในกลุ่ม นั่งสบายหลังคาโปร่ง กว้างขวาง",
+                pros: "ตัวรถใหญ่กว้างนั่งสบาย นุ่มนวลสูงสุด, อัตราเร่งดีเยี่ยม",
+                cons: "ศูนย์บริการต่างอำเภอจำกัด, ระบบเสียบชาร์จซับซ้อนต้องอาศัยชาร์จบ้าน",
+                suitability: "7.0/10",
+                type: "phev",
+                maintScore: 2,
+                comfortScore: 5,
+                driveSystem: "ปลั๊กอินไฮบริด (PHEV)",
+                centerScore: "🟡 ปานกลาง (เฉพาะอำเภอเมืองหลัก)",
+                engine: "DM-i Super Hybrid เบนซิน 1.5 ลิตร + มอเตอร์ไฟฟ้า 194 แรงม้า, แบตเตอรี่ Blade Battery 13.08 kWh (รุ่น Standard) / 18.3 kWh (รุ่น Premium), วิ่งไฟฟ้าล้วน 85-120 กม.",
+                safety: "ระบบช่วยขับขี่อัจฉริยะ ADAS (ควบคุมรถให้อยู่ในเลน LKA, ควบคุมความเร็วแปรผัน ACC, เบรกฉุกเฉินอัตโนมัติ AEB), ถุงลม 6 ตำแหน่ง",
+                warranty: "รับประกันตัวรถ 8 ปี/160,000 กม. | แบตเตอรี่และระบบขับเคลื่อนไฟฟ้า 8 ปี/160,000 กม.",
+                recommendationBadge: "🛋️ กว้างขวางที่สุด",
+                perfRating: 5,
+                maintRating: 2,
+                spaceRating: 5,
+                maintCost100k: 23800,
+                insuranceCost: 22000,
+                image: "https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/BYD_Destroyer_05_front.jpg/640px-BYD_Destroyer_05_front.jpg",
+                colors: [
+                    { name: "Emperor White", hex: "#ffffff" },
+                    { name: "Time Grey", hex: "#6c757d" },
+                    { name: "Cosmos Black", hex: "#111111" },
+                    { name: "Azure Blue", hex: "#2e5b88" }
+                ],
+                variants: [
+                    { name: "Standard", price: 599900, specs: "รุ่นเริ่มต้น: แบตเตอรี่ 13.08 kWh (วิ่งไฟฟ้า 85 กม.), ล้อ 16\", หน้าจอกลาง 12.8\"" },
+                    { name: "Dynamic", price: 659900, specs: "รุ่นกลาง: หน้าจอกลางหมุนไฟฟ้า, กล้องมองรอบคัน, เพิ่มระบบตรวจเช็กแรงดันลมยาง TPMS" },
+                    { name: "Premium", price: 699900, specs: "รุ่นท็อป: แบตเตอรี่ 18.3 kWh (วิ่งไฟฟ้า 120 กม.), ระบบ ADAS เต็มระบบ, แท่นชาร์จไร้สาย" }
+                ]
+            },
+            {
+                id: "almera-turbo",
+                name: "Nissan Almera (1.0 Turbo)",
+                sub: "เครื่องเทอร์โบขับสนุก ออปชันคุ้มราคา",
+                price: "549,000 - 699,000 บาท",
+                minPrice: 549000,
+                economy: 18.5, // Realistic km/L
+                maintenance: "ปานกลาง (ต้องตรวจเช็กเกียร์ CVT และสายพานอย่างเคร่งครัด)",
+                space: "ห้องโดยสารตอนหลังยาววางขาสบายพิงหลังค่อนข้างดี",
+                pros: "ขับสนุกเร่งแซงรอบกลางได้ดี ออปชันและเทคโนโลยีความปลอดภัยครบ",
+                cons: "กินน้ำมันปานกลางยามใช้ความเร็วสูง, ระยะยาวสายพานตึงซ่อมบำรุงสูง",
+                suitability: "8.0/10",
+                type: "turbo",
+                maintScore: 3,
+                comfortScore: 4,
+                driveSystem: "เบนซิน 1.0 เทอร์โบ",
+                centerScore: "🟢 ดี (ครอบคลุมอำเภอหลัก)",
+                engine: "เบนซิน 3 สูบ 1.0 ลิตร เทอร์โบ (HRA0) 100 แรงม้า แรงบิด 152 นิวตันเมตร, เกียร์ XTRONIC CVT (D-Step Logic)",
+                safety: "Nissan 360° Safety Shield (กล้องมองภาพรอบทิศทาง IAVM, เตือนก่อนชนด้านหน้า IFCW, เตือนมุมอับสายตา BSW), ถุงลม 6 ตำแหน่ง",
+                warranty: "รับประกันคุณภาพรถ 3 ปี/100,000 กม. จาก Nissan ประเทศไทย",
+                recommendationBadge: "💰 คุ้มราคากลางๆ",
+                perfRating: 4,
+                maintRating: 3,
+                spaceRating: 4,
+                maintCost105k: 27500,
+                maintCost100k: 27500,
+                insuranceCost: 16500,
+                image: "https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/2020_Nissan_Almera_1.0_Turbo_V_front_view_%28Thailand%29.jpg/640px-2020_Nissan_Almera_1.0_Turbo_V_front_view_%28Thailand%29.jpg",
+                colors: [
+                    { name: "Storm White", hex: "#fafafa" },
+                    { name: "Black Star", hex: "#1b1b1b" },
+                    { name: "Gun Metallic", hex: "#555d65" },
+                    { name: "Grayish Blue", hex: "#3f5870" },
+                    { name: "Monarch Orange", hex: "#e05a00" }
+                ],
+                variants: [
+                    { name: "E", price: 573000, specs: "รุ่นเริ่มต้น: เพิ่มระบบเตือนชนหน้าและเบรกฉุกเฉินอัจฉริยะ (IFCW & IEB), ล้อ 15\"" },
+                    { name: "EL", price: 589000, specs: "รุ่นคุ้มค่า: จอสัมผัส 8\" รองรับ Apple CarPlay/Android Auto, กุญแจอัจฉริยะ I-Key" },
+                    { name: "V", price: 669000, specs: "รุ่นยอดนิยม: แอร์ออโต้, กล้องมองภาพรอบทิศทาง 360 องศา, ไฟหน้า LED เต็มระบบ" },
+                    { name: "VL", price: 699000, specs: "รุ่นท็อป: เพิ่มระบบเตือนมุมอับสายตา BSW, เตือนรถตัดผ่านขณะถอย RCTA, หน้าจอกลางแบบสปอร์ต" }
+                ]
+            },
+            {
+                id: "city-hev",
+                name: "Honda City e:HEV",
+                sub: "เก๋งไฮบริดพรีเมียม ขับสนุก เงียบนุ่มนวล",
+                price: "729,000 - 799,000 บาท",
+                minPrice: 729000,
+                economy: 24.5, // Realistic km/L
+                maintenance: "ปานกลาง (มาตรฐานฮอนด้า อะไหล่พอดีเคลมง่ายรับประกันแบต)",
+                space: "เบาะนั่งตอนหลังนุ่มกระชับสรีระ พนักพิงสบาย",
+                pros: "เงียบมากในรอบต่ำ กำลังอัตราเร่งเร่งแซงถนนเลนสวนดีที่สุด",
+                cons: "ราคาเกือบชนงบ 8 แสนบาท, ท้ายรถเสียพื้นที่เล็กน้อยจากกล่องแบตเตอรี่",
+                suitability: "9.2/10",
+                type: "hybrid",
+                maintScore: 3,
+                comfortScore: 5,
+                driveSystem: "ไฮบริด (e:HEV)",
+                centerScore: "🟢 ดีเยี่ยม (มีศูนย์จังหวัดและอำเภอหลัก)",
+                engine: "เครื่องยนต์ 1.5 ลิตร Atkinson Cycle + มอเตอร์ไฟฟ้าคู่ กำลังรวมสูงสุด 109 แรงม้า แรงบิดมอเตอร์ 253 นิวตันเมตร, เกียร์ E-CVT",
+                safety: "Honda SENSING (ระบบปรับไฟสูงอัตโนมัติ AHB, เตือนและช่วยคุมเมื่อรถออกนอกเลน RDM w/ LDW, คุมความเร็วแปรผันพร้อม LSF, ช่วยเลน LKAS), ถุงลม 6 ตำแหน่ง",
+                warranty: "รับประกันคุณภาพรถ 3 ปี/100,000 กม. | แบตเตอรี่ไฮบริด 10 ปี, ระบบไฮบริด 5 ปี (ไม่จำกัดระยะทาง)",
+                recommendationBadge: "⚡ เร่งแซงดีที่สุด",
+                perfRating: 5,
+                maintRating: 3,
+                spaceRating: 4,
+                maintCost100k: 25600,
+                insuranceCost: 19500,
+                image: "https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/2020_Honda_City_eHEV_RS_front_view_%28Thailand%29.jpg/640px-2020_Honda_City_eHEV_RS_front_view_%28Thailand%29.jpg",
+                colors: [
+                    { name: "Platinum White Pearl", hex: "#f8f9fa" },
+                    { name: "Crystal Black Pearl", hex: "#181a1b" },
+                    { name: "Meteoroid Gray Metallic", hex: "#5a5d60" },
+                    { name: "Ignite Red Metallic", hex: "#a6192e" },
+                    { name: "Sonic Gray Pearl", hex: "#b2bec3" }
+                ],
+                variants: [
+                    { name: "e:HEV SV", price: 729000, specs: "รุ่นไฮบริดเริ่มต้น: จอสัมผัส 8\" พร้อม Apple CarPlay ไร้สาย, ระบบความปลอดภัย Honda SENSING" },
+                    { name: "e:HEV RS", price: 799000, specs: "รุ่นไฮบริดท็อป: ตกแต่ง RS สปอร์ต, ล้อ 16\", ช่องปรับอากาศตอนหลัง, ม่านถุงลมรอบคัน" }
+                ]
+            },
+            {
+                id: "ativ-12",
+                name: "Toyota Yaris Ativ (1.2 เบนซินล้วน)",
+                sub: "ทนทาน ซ่อมง่าย ไร้ความกังวลระยะยาว",
+                price: "549,000 - 699,000 บาท",
+                minPrice: 549000,
+                economy: 18.5, // Realistic km/L
+                maintenance: "ต่ำสุด (อะไหล่ถูกที่สุด ไม่มีแบตไฮบริด เครื่อง 1.2 ทนมาก)",
+                space: "กว้างขวางเท่ารุ่นไฮบริด แผงจัดตำแหน่งใช้สอยดี",
+                pros: "ดูแลง่ายระดับสิบปีไม่มีจุกจิก ตัวรถถูกประหยัดงบได้หลักแสน",
+                cons: "คันเร่งหนืดเร่งแซงเลนสวนค่อนข้างเหนื่อยเวลาบรรทุกหนัก",
+                suitability: "9.0/10",
+                type: "ice",
+                maintScore: 5,
+                comfortScore: 4,
+                driveSystem: "เบนซิน 1.2 NA",
+                centerScore: "🟢 ยอดเยี่ยม (เกือบทุกอำเภอ)",
+                engine: "เบนซิน 4 สูบ 1.2 ลิตร (3NR-VE) Dual VVT-iE 94 แรงม้า แรงบิด 110 นิวตันเมตร, เกียร์อัตโนมัติ Super CVT-i",
+                safety: "Toyota Safety Sense (ระบบควบคุมความเร็วแปรผัน ACC, เตือนออกนอกเลน LDA, เตือนชนหน้า PCS), ถุงลม 6 ตำแหน่ง",
+                warranty: "รับประกันคุณภาพรถ 3 ปี/100,000 กม. จาก Toyota ประเทศไทย",
+                recommendationBadge: "🛡️ ซ่อมง่ายทนทาน",
+                perfRating: 2,
+                maintRating: 5,
+                spaceRating: 4,
+                maintCost100k: 29500,
+                insuranceCost: 15500,
+                image: "https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/2022_Toyota_Yaris_Ativ_Premium_Luxury_front_view_%28Thailand%29.jpg/640px-2022_Toyota_Yaris_Ativ_Premium_Luxury_front_view_%28Thailand%29.jpg",
+                colors: [
+                    { name: "Platinum White Pearl", hex: "#f8f9fa" },
+                    { name: "Attitude Black Mica", hex: "#1a1a1a" },
+                    { name: "Metal Stream Metallic", hex: "#8a9597" },
+                    { name: "Red Mica Metallic", hex: "#b81d24" },
+                    { name: "Gray Metallic", hex: "#5a5e62" }
+                ],
+                variants: [
+                    { name: "V", price: 629000, specs: "รุ่นเริ่มต้น: จอสัมผัส 8\" พร้อม Apple CarPlay ไร้สาย, ปุ่ม Push Start" },
+                    { name: "SV", price: 679000, specs: "รุ่นกลาง: เบาะหนังสังเคราะห์ดีไซน์หรู, กล้องมองหลังปรับ 3 ระดับ, แอร์อัตโนมัติ" },
+                    { name: "RS", price: 749000, specs: "รุ่นท็อป: ตกแต่ง RS สปอร์ตรอบคัน, ล้อ 16\", ถุงลม 6 ตำแหน่ง, แป้น Paddle Shift" }
+                ]
+            },
+            {
+                id: "yaris-cross-hev",
+                name: "Toyota Yaris Cross HEV",
+                sub: "ไฮบริดอเนกประสงค์ B-SUV ยอดนิยม",
+                price: "789,000 - 919,000 บาท",
+                minPrice: 789000,
+                economy: 23.0, // Realistic km/L
+                maintenance: "ต่ำ-ปานกลาง (ฟรีค่าแรง 1 แสนกม. อะไหล่แชร์กับ Ativ คอนโซลทนทาน)",
+                space: "อเนกประสงค์ B-SUV หลังคาโปร่ง พับเบาะได้ราบ จุสัมภาระด้านหลังได้เยอะ",
+                pros: "ห้องโดยสารอเนกประสงค์พับเบาะหลังราบได้, ตัวรถยกสูงทัศนวิสัยกว้างลุยน้ำท่วมขังดี, ประหยัดน้ำมันไฮบริด",
+                cons: "วัสดุภายในเป็นพลาสติกแข็งเยอะกว่่าคู่แข่ง, ตัวรถต้านลมและโยนตัวทางโค้งมากกว่าซีดานเนื่องจากยกสูง",
+                suitability: "9.3/10",
+                type: "hybrid",
+                maintScore: 4,
+                comfortScore: 4,
+                driveSystem: "ไฮบริด (HEV)",
+                centerScore: "🟢 ยอดเยี่ยม (เกือบทุกอำเภอ)",
+                engine: "เบนซิน 1.5 ลิตร (2NR-VEX) + มอเตอร์ไฟฟ้า กำลังรวม 111 แรงม้า, เกียร์ e-CVT, แบตเตอรี่ Lithium-ion 0.7 kWh",
+                safety: "Toyota Safety Sense (ระบบเตือนชน/เบรกอัตโนมัติ PCS, เตือนออกเลนพร้อมดึงกลับ, ควบคุมความเร็วแปรผัน ACC All-Speed), ถุงลม 6 ตำแหน่ง",
+                warranty: "รับประกันคุณภาพรถ 3 ปี/100,000 กม. | แบตเตอรี่ไฮบริด 10 ปี, ระบบไฮบริด 5 ปี (ไม่จำกัดระยะทาง)",
+                recommendationBadge: "🧗 อเนกประสงค์ยกสูง",
+                perfRating: 3,
+                maintRating: 4,
+                spaceRating: 4,
+                maintCost100k: 30400,
+                insuranceCost: 18500,
+                image: "https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/2023_Toyota_Yaris_Cross_HEV_Premium_Luxury_front_view_%28Thailand%29.jpg/640px-2023_Toyota_Yaris_Cross_HEV_Premium_Luxury_front_view_%28Thailand%29.jpg",
+                colors: [
+                    { name: "Platinum White Pearl (Black Roof)", hex: "#f9fbfd" },
+                    { name: "Attitude Black Mica", hex: "#1a1a1a" },
+                    { name: "Metal Stream Metallic (Black Roof)", hex: "#8a9597" },
+                    { name: "Spicy Scarlet (Black Roof)", hex: "#c21820" },
+                    { name: "Dark Blue Mica Metallic (Black Roof)", hex: "#0f3a61" }
+                ],
+                variants: [
+                    { name: "HEV Smart", price: 789000, specs: "รุ่นเริ่มต้น: ล้อ 17\", จอสัมผัส 10.1\" ไร้สาย, กล้องมองหลัง, ถุงลม 6 ใบ" },
+                    { name: "HEV Premium", price: 849000, specs: "รุ่นกลาง: เพิ่ม Toyota Safety Sense, เบาะคนขับปรับไฟฟ้า 8 ทิศทาง, ระบบเตือนจุดอับสายตา BSM" },
+                    { name: "HEV Premium Luxury", price: 899000, specs: "รุ่นท็อป: เพิ่ม Panoramic Sunroof, ฝาท้ายไฟฟ้า Kick Activated, กล้องรอบคัน 3D, ชาร์จไร้สาย" },
+                    { name: "HEV Nightshade", price: 919000, specs: "รุ่นแต่งพิเศษ: ตกแต่งโทนสีดำภายนอก Metro Stylish, ล้อดำปัดเงา 18\", ตัวถังสีพิเศษ Cement Gray หลังคาดำ" }
+                ]
+            },
+            {
+                id: "city-hb-hev",
+                name: "Honda City Hatchback e:HEV",
+                sub: "ไฮบริด 5 ประตู อเนกประสงค์เบาะพับราบได้",
+                price: "729,000 - 799,000 บาท",
+                minPrice: 729000,
+                economy: 23.5, // Realistic km/L
+                maintenance: "ปานกลาง (อะไหล่ตัวถัง 5 ประตูหาง่าย ประกันแบตไฮบริด 10 ปี)",
+                space: "5 ประตู เบาะหลังพับแยกได้แบบ ULTRA Seat จัดเก็บของชิ้นใหญ่ได้อิสระมาก",
+                pros: "ห้องโดยสารอเนกประสงค์สูงสุดพับเบาะได้หลายรูปแบบ, อัตราเร่งกระฉับกระเฉงขับสนุกมาก",
+                cons: "เก็บเสียงรบกวนจากด้านท้ายรถได้น้อยกว่ารุ่นซีดานเนื่องจากไม่มีแผงกั้นท้ายแยกส่วน",
+                suitability: "9.1/10",
+                type: "hybrid",
+                maintScore: 3,
+                comfortScore: 4,
+                driveSystem: "ไฮบริด (e:HEV)",
+                centerScore: "🟢 ดีเยี่ยม (มีศูนย์จังหวัดและอำเภอหลัก)",
+                engine: "เครื่องยนต์ 1.5 ลิตร Atkinson Cycle + มอเตอร์ไฟฟ้าคู่ กำลังรวมสูงสุด 109 แรงม้า แรงบิดมอเตอร์ 253 นิวตันเมตร, เกียร์ E-CVT, แบตเตอรี่ Lithium-ion",
+                safety: "Honda SENSING (ระบบปรับไฟสูงอัตโนมัติ AHB, เตือนและช่วยคุมเมื่อรถออกนอกเลน RDM w/ LDW, คุมความเร็วแปรผันพร้อม LSF, ช่วยเลน LKAS), ถุงลม 6 ตำแหน่ง",
+                warranty: "รับประกันคุณภาพรถ 3 ปี/100,000 กม. | แบตเตอรี่ไฮบริด 10 ปี, ระบบไฮบริด 5 ปี (ไม่จำกัดระยะทาง)",
+                recommendationBadge: "🎒 5 ประตูพับเบาะราบ",
+                perfRating: 5,
+                maintRating: 3,
+                spaceRating: 4,
+                maintCost100k: 25600,
+                insuranceCost: 19500,
+                image: "https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/2021_Honda_City_Hatchback_eHEV_RS_front_view_%28Thailand%29.jpg/640px-2021_Honda_City_Hatchback_eHEV_RS_front_view_%28Thailand%29.jpg",
+                colors: [
+                    { name: "Platinum White Pearl", hex: "#f8f9fa" },
+                    { name: "Crystal Black Pearl", hex: "#181a1b" },
+                    { name: "Meteoroid Gray Metallic", hex: "#5a5d60" },
+                    { name: "Ignite Red Metallic", hex: "#a6192e" },
+                    { name: "Sonic Gray Pearl", hex: "#b2bec3" }
+                ],
+                variants: [
+                    { name: "e:HEV SV", price: 729000, specs: "รุ่นเริ่มต้นไฮบริด: เบาะหลังแบบ ULTRA Seat พับได้ 4 รูปแบบ, จอสัมผัส 8\", Honda SENSING" },
+                    { name: "e:HEV RS", price: 799000, specs: "รุ่นท็อปสปอร์ต: ตกแต่ง RS ดุดัน, ล้อ 16\" สีดำเงา, กล้องมองรอบคัน, ระบบแสดงมุมอับ LaneWatch" }
+                ]
+            },
+            {
+                id: "hrv-hev",
+                name: "Honda HR-V e:HEV",
+                sub: "SUV ไฮบริดยอดนิยม ขับสนุกระบบความปลอดภัยครบ",
+                price: "959,000 - 1,189,000 บาท",
+                minPrice: 959000,
+                economy: 20.5, // Realistic km/L
+                maintenance: "ปานกลาง (ศูนย์บริการดีเยี่ยม อะไหล่หาง่าย มีรับประกันระบบไฮบริดยาวนาน)",
+                space: "เบาะหลังพับแยก ULTRA Seat ได้หลากหลาย ท้ายกว้างขวางแต่อึดอัดเหนือศีรษะคนตัวสูงเล็กน้อย",
+                pros: "อัตราเร่งตอบสนองไวเร่งแซงมั่นใจ ขับสนุก มิติตัวรถคล่องตัว ดีไซน์ภายนอกสวยสปอร์ตพรีเมียม",
+                cons: "ความสูงใต้ท้องรถกลางๆ คล้ายรถเก๋งยกสูง, พื้นที่เหนือศีรษะตอนหลังเตี้ยลาดกว่า Corolla Cross",
+                suitability: "9.2/10",
+                type: "hybrid",
+                maintScore: 3,
+                comfortScore: 4,
+                driveSystem: "ไฮบริด (e:HEV)",
+                centerScore: "🟢 ดีเยี่ยม (มีศูนย์จังหวัดและอำเภอหลัก)",
+                engine: "เครื่องยนต์ 1.5 ลิตร Atkinson Cycle + มอเตอร์ไฟฟ้าคู่ กำลังรวมสูงสุด 131 แรงม้า แรงบิดมอเตอร์ 253 นิวตันเมตร, เกียร์ E-CVT",
+                safety: "Honda SENSING (เบรกเตือนชน CMBS, คุมความเร็วแปรผัน LSF, ช่วยเลน LKAS, เตือนและช่วยคุมเมื่อออกเลน RDM), ถุงลม 6 ตำแหน่ง",
+                warranty: "รับประกันคุณภาพรถ 3 ปี/100,000 กม. | แบตเตอรี่ไฮบริด 10 ปี, ระบบไฮบริด 5 ปี (ไม่จำกัดระยะทาง)",
+                recommendationBadge: "🧗 SUV สปอร์ตขับสนุก",
+                perfRating: 4,
+                maintRating: 3,
+                spaceRating: 4,
+                maintCost100k: 28000,
+                insuranceCost: 22000,
+                image: "https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/2021_Honda_HR-V_eHEV_RS_front_view_%28Thailand%29.jpg/640px-2021_Honda_HR-V_eHEV_RS_front_view_%28Thailand%29.jpg",
+                colors: [
+                    { name: "Premium Sunlight White Pearl", hex: "#f1f3f2" },
+                    { name: "Crystal Black Pearl", hex: "#181a1b" },
+                    { name: "Meteoroid Gray Metallic", hex: "#5a5d60" },
+                    { name: "Ignite Red Metallic (Black Roof)", hex: "#a6192e" },
+                    { name: "Sand Khaki Pearl (Black Roof)", hex: "#c4bca2" }
+                ],
+                variants: [
+                    { name: "e:HEV E", price: 959000, specs: "รุ่นเริ่มต้น: ล้อ 17\" สีเทาเข้ม, ระบบความปลอดภัย Honda SENSING, เบาะหนังสังเคราะห์ดำ" },
+                    { name: "e:HEV EL", price: 1089000, specs: "รุ่นกลาง: ฝาท้ายไฟฟ้าเปิด-ปิดอัตโนมัติแบบแฮนด์ฟรี, ระบบกล้อง Lanewatch, ที่ปัดน้ำฝนออโต้" },
+                    { name: "e:HEV HuNT", price: 1097000, specs: "รุ่นแต่งสไตล์ผจญภัย: ล้อ 17\" ลายเฉพาะตัว, ราวหลังคาสีดำ, สีตัวถังหลังคาดำ, ตกแต่งภายในสีกากี" },
+                    { name: "e:HEV RS", price: 1189000, specs: "รุ่นท็อป: เพิ่มหลังคากระจก Panoramic Glass Roof, ชุดแต่ง RS สปอร์ตโครเมียมรมดำ, ล้อ 18\", ไฟเลี้ยววิ่ง Sequential" }
+                ]
+            },
+            {
+                id: "corolla-cross-hev",
+                name: "Toyota Corolla Cross HEV",
+                sub: "C-SUV ไฮบริด ห้องโดยสารโปร่งสบายนั่งสบายทั้งครอบครัว",
+                price: "989,000 - 1,204,000 บาท",
+                minPrice: 989000,
+                economy: 19.0, // Realistic km/L
+                maintenance: "ต่ำ-ปานกลาง (อะไหล่เครื่องยนต์กับช่วงล่างแชร์กับ Altis ซ่อมง่าย ทนทานสูงสุด)",
+                space: "เบาะนั่งโปร่งโล่งสบาย ทัศนวิสัยดีรอบคัน มีที่เก็บสัมภาระตอนท้ายขนาดใหญ่มาก",
+                pros: "ช่วงล่างนุ่มนวลซับแรงกระแทกเยี่ยม, พื้นที่ห้องโดยสารโอ่โถงไม่อึดอัด, ทนทานไม่มีจุกจิก",
+                cons: "งานดีไซน์ภายในและหน้าจอกลางค่อนข้างเรียบง่ายเชยกว่าคู่แข่ง, อัตราเร่งแบบนุ่มนวลเน้นประหยัด",
+                suitability: "9.4/10",
+                type: "hybrid",
+                maintScore: 4,
+                comfortScore: 5,
+                driveSystem: "ไฮบริด (HEV)",
+                centerScore: "🟢 ยอดเยี่ยม (เกือบทุกอำเภอ)",
+                engine: "เครื่องยนต์ 1.8 ลิตร ไฮบริด (2ZR-FXE) + มอเตอร์ไฟฟ้า กำลังสูงสุดรวม 122 แรงม้า, เกียร์ e-CVT, แบตเตอรี่ Lithium-ion",
+                safety: "Toyota Safety Sense (เบรกอัตโนมัติชนหน้า PCS, ควบคุมความเร็ว ACC All-Speed, เตือนเลนออก LDA w/ steering control), ถุงลม 7 ตำแหน่ง",
+                warranty: "รับประกันคุณภาพรถ 5 ปี/150,000 กม. | แบตเตอรี่ไฮบริด 10 ปี, ระบบไฮบริด 5 ปี (ไม่จำกัดระยะทาง)",
+                recommendationBadge: "🛋️ นุ่มสบายสไตล์ครอบครัว",
+                perfRating: 3,
+                maintRating: 4,
+                spaceRating: 5,
+                maintCost100k: 31000,
+                insuranceCost: 23000,
+                image: "https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/2024_Toyota_Corolla_Cross_HEV_Premium_Luxury_front_view_%28Thailand%29.jpg/640px-2024_Toyota_Corolla_Cross_HEV_Premium_Luxury_front_view_%28Thailand%29.jpg",
+                colors: [
+                    { name: "Platinum White Pearl", hex: "#f8f9fa" },
+                    { name: "Attitude Black Mica", hex: "#1a1a1a" },
+                    { name: "Metal Stream Metallic", hex: "#8a9597" },
+                    { name: "Celestite Gray Metallic", hex: "#4b535d" }
+                ],
+                variants: [
+                    { name: "HEV Smart", price: 989000, specs: 'รุ่นเริ่มต้น: ไฟหน้า LED คริสตัลดีไซน์ใหม่, หน้าจอ 10.1" ไร้สาย, ถุงลม 7 ตำแหน่ง, ล้อ 17"' },
+                    { name: "HEV Premium", price: 1094000, specs: 'รุ่นกลาง: เพิ่มระบบเตือนมุมอับ BSW, ระบบเตือนขณะถอย RCTA, ฝาท้ายไฟฟ้า Kick Activated' },
+                    { name: "HEV Premium Luxury", price: 1204000, specs: 'รุ่นท็อป: หลังคา Panoramic Roof พร้อมม่านไฟฟ้า, ที่ชาร์จไร้สาย, กล้อง 360 รอบทิศทาง' },
+                    { name: "HEV GR Sport", price: 1254000, specs: 'รุ่นสปอร์ตแต่งพิเศษ: ชุดแต่งดีไซน์ GR Sport รอบคัน, ปรับเซตช่วงล่างและพวงมาลัยสไตล์สปอร์ต, ล้อ 18" ลาย GR' }
+                ]
+            },
+            {
+                id: "xforce-hev",
+                name: "Mitsubishi Xforce HEV",
+                sub: "B-SUV ไฮบริดออปชันคุ้มค่า พร้อมระบบเสียง Yamaha Premium",
+                price: "899,000 - 1,089,000 บาท",
+                minPrice: 899000,
+                economy: 17.5,
+                maintenance: "ปานกลาง (ฟรีค่าแรงเช็กระยะ M-Care, รับประกันแบตเตอรี่ไฮบริด 10 ปี)",
+                space: "กว้างขวางสไตล์ B-SUV เบาะหลังพับแยกแบบ 40:20:40 ได้อิสระ ท้ายเก็บของจุใจ",
+                pros: "เครื่องเสียง Yamaha Dynamic Sound คุณภาพดีเยี่ยม, โหมดขับขี่ 7 โหมดลุยถนนเปียกน้ำท่วมขังดี, ช่วงล่างเกาะถนนดี",
+                cons: "ช่วงล่างเซ็ตสปอร์ตจะมีความกระด้างเล็กน้อยในความเร็วต่ำ, แบรนด์รองกว่าในด้านศูนย์บริการนอกเมืองใหญ่",
+                suitability: "8.8/10",
+                type: "hybrid",
+                maintScore: 3,
+                comfortScore: 4,
+                driveSystem: "ไฮบริด (e:MOTION)",
+                centerScore: "🟡 ปานกลาง (ครอบคลุมอำเภอใหญ่และจังหวัดหลัก)",
+                engine: "เครื่องยนต์เบนซิน 1.6 ลิตร MIVEC + มอเตอร์ไฟฟ้า กำลังสูงสุดรวม 116 แรงม้า แรงบิดมอเตอร์ 255 นิวตันเมตร, เกียร์อัตโนมัติ",
+                safety: "ระบบความปลอดภัย Diamond Sense (ควบคุมความเร็วแปรผัน ACC, BSW, RCTA, เบรกฉุกเฉินอัตโนมัติ), ถุงลม 6 ตำแหน่ง",
+                warranty: "รับประกันคุณภาพรถ 7 ปี/150,000 กม. | แบตเตอรี่ไฮบริด 10 ปี (ไม่จำกัดระยะทาง), ระบบไฮบริด 7 ปี",
+                recommendationBadge: "🎵 เครื่องเสียง Yamaha + โหมดขับขี่ 7 โหมด",
+                perfRating: 4,
+                maintRating: 3,
+                spaceRating: 4,
+                maintCost100k: 31000,
+                insuranceCost: 21000,
+                image: "https://images.weserv.nl/?url=https://upload.wikimedia.org/wikipedia/commons/e/ea/2023_Mitsubishi_Xforce_Ultimate_%28Indonesia%29_front_view_01.jpg&w=640",
+                colors: [
+                    { name: "Pearl White Diamond", hex: "#f8f9fa" },
+                    { name: "Energetic Yellow", hex: "#f0c243" },
+                    { name: "Red Metallic", hex: "#b21a20" },
+                    { name: "Graphite Grey Metallic", hex: "#525559" },
+                    { name: "Blade Silver Metallic", hex: "#b5babf" },
+                    { name: "Jet Black Mica", hex: "#141618" }
+                ],
+                variants: [
+                    { name: "Ignite", price: 899000, specs: "รุ่นเริ่มต้น: ล้อ 18 นิ้ว, แอร์อัตโนมัติ Dual Zone, จอกลางแบบสัมผัส, กล้องมองหลัง, ระบบช่วยทรงตัว AYC" },
+                    { name: "Ultimate", price: 1039000, specs: "รุ่นกลาง: เพิ่มฝาท้ายไฟฟ้า Hands-free, กล้องรอบคัน 360 องศา, ที่ชาร์จไร้สาย, ระบบเตือนมุมอับสายตา BSW" },
+                    { name: "Ultimate X", price: 1089000, specs: "รุ่นท็อป: เพิ่มเครื่องเสียง Yamaha Premium 8 ลำโพง, ไฟสร้างบรรยากาศ Ambient Light, ชุดแต่ง Ultimate X รอบคัน" }
+                ]
+            }
+        ];
+
+        // State variables
+        let quizAnswers = { q1: null, q2: null, q3: null };
+        let compareList = [];
+        let selectedVariants = {
+            "ativ-hev": 0,
+            "byd-seal5": 0,
+            "almera-turbo": 0,
+            "city-hev": 0,
+            "ativ-12": 0,
+            "city-turbo": 0,
+            "yaris-cross-hev": 0,
+            "city-hb-hev": 0,
+            "hrv-hev": 0,
+            "corolla-cross-hev": 0,
+            "xforce-hev": 0
+        };
+
+
+
+        function selectVariant(carId, variantIndex) {
+            selectedVariants[carId] = parseInt(variantIndex);
+            initBreakEvenCars();
+            updateDashboard();
+            renderSpecsTable();
+        }
+
+        // Selected colors are rendered dynamically using accent color borders on real photos
+
+        // Presets configuration
+        const presets = {
+            city: { commute: 15, work: 20, trips: 2, dist: 40, fuel: 38 },
+            commute: { commute: 30, work: 22, trips: 3, dist: 100, fuel: 38 },
+            long: { commute: 80, work: 26, trips: 6, dist: 120, fuel: 38 }
+        };
+
+        document.addEventListener("DOMContentLoaded", () => {
+            initSliders();
+            initBreakEvenCars();
+            updateDashboard();
+            renderSpecsTable();
+            updateCompareWidget();
+        });
+
+        // Tab Switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('tab-active');
+            });
+
+            const activeBtn = document.getElementById(`tab-${tabName}`);
+            activeBtn.classList.add('tab-active');
+
+            document.getElementById('content-dashboard').classList.add('hidden');
+            document.getElementById('content-comparison').classList.add('hidden');
+            document.getElementById('content-wizard').classList.add('hidden');
+            document.getElementById('content-coach').classList.add('hidden');
+
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+        }
+
+        // toggle Jargon
+        function toggleJargonBuster() {
+            const content = document.getElementById('jargon-content');
+            const btn = document.getElementById('jargon-toggle-btn');
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                btn.textContent = 'ซ่อนคำอธิบาย ▴';
+            } else {
+                content.classList.add('hidden');
+                btn.textContent = 'แสดงคำอธิบายเพิ่มเติม ▾';
+            }
+        }
+
+        // Apply Presets to Calculator
+        function applyPreset(presetType) {
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                btn.classList.remove('active-preset');
+            });
+
+            const activeBtn = event ? event.target : document.getElementById('default-preset');
+            if (activeBtn) {
+                activeBtn.classList.add('active-preset');
+            }
+
+            const data = presets[presetType];
+            if (!data) return;
+
+            document.getElementById('commute-dist').value = data.commute;
+            document.getElementById('work-days').value = data.work;
+            document.getElementById('city-trips').value = data.trips;
+            document.getElementById('city-dist').value = data.dist;
+            document.getElementById('fuel-price').value = data.fuel;
+
+            document.getElementById('commute-val').textContent = data.commute + ' กม.';
+            document.getElementById('days-val').textContent = data.work + ' วัน';
+            document.getElementById('trips-val').textContent = data.trips + ' ครั้ง';
+            document.getElementById('city-dist-val').textContent = data.dist + ' กม.';
+            document.getElementById('fuel-val').textContent = data.fuel + ' บาท';
+
+            updateDashboard();
+        }
+
+        // Sliders & Calculation
+        function initSliders() {
+            const sliders = [
+                { id: 'commute-dist', valId: 'commute-val', suffix: ' กม.' },
+                { id: 'work-days', valId: 'days-val', suffix: ' วัน' },
+                { id: 'city-trips', valId: 'trips-val', suffix: ' ครั้ง' },
+                { id: 'city-dist', valId: 'city-dist-val', suffix: ' กม.' },
+                { id: 'fuel-price', valId: 'fuel-val', suffix: ' บาท' },
+                { id: 'down-pct', valId: 'down-pct-val', suffix: '%' },
+                { id: 'interest-rate', valId: 'interest-rate-val', suffix: '%' }
+            ];
+
+            sliders.forEach(slider => {
+                const el = document.getElementById(slider.id);
+                el.addEventListener('input', () => {
+                    document.getElementById(slider.valId).textContent = el.value + slider.suffix;
+
+                    if (!['down-pct', 'interest-rate'].includes(slider.id)) {
+                        document.querySelectorAll('.preset-btn').forEach(btn => {
+                            btn.classList.remove('active-preset');
+                        });
+                    }
+
+                    updateDashboard();
+                });
+            });
+
+            document.getElementById('finance-months').addEventListener('change', () => {
+                updateDashboard();
+            });
+        }
+
+        // Unified Update Loop
+        function updateDashboard() {
+            const countBadge = document.getElementById('cars-count-badge');
+            if (countBadge) countBadge.textContent = cars.length;
+
+            calculateCosts();
+            renderSummaryCards();
+            calculateTCO();
+            calculateBreakEven();
+            if (compareList.length > 0) {
+                renderCompareBoard();
+            }
+        }
+
+        function calculateCosts() {
+            const commute = parseFloat(document.getElementById('commute-dist').value);
+            const workdays = parseFloat(document.getElementById('work-days').value);
+            const trips = parseFloat(document.getElementById('city-trips').value);
+            const cityDist = parseFloat(document.getElementById('city-dist').value);
+            const fuelPrice = parseFloat(document.getElementById('fuel-price').value);
+
+            // Compute Total Monthly Distance
+            const totalDist = (commute * workdays) + (trips * cityDist);
+            document.getElementById('calc-total-dist').textContent = totalDist.toLocaleString();
+
+            const container = document.getElementById('cost-bars-container');
+            container.innerHTML = '';
+
+            // Calc individual fuel costs
+            const calculatedCars = cars.map(car => {
+                const fuelLitres = totalDist / car.economy;
+                const cost = fuelLitres * fuelPrice;
+                return { ...car, monthlyCost: cost, litres: fuelLitres };
+            });
+
+            const maxCost = Math.max(...calculatedCars.map(c => c.monthlyCost));
+
+            calculatedCars.sort((a, b) => a.monthlyCost - b.monthlyCost).forEach(car => {
+                const percentage = (car.monthlyCost / maxCost) * 100;
+
+                let colorClass = 'bg-slate-500';
+                if (car.type === 'hybrid') colorClass = 'bg-emerald-600';
+                if (car.type === 'phev') colorClass = 'bg-indigo-650';
+                if (car.type === 'turbo') colorClass = 'bg-amber-500';
+
+                const barHTML = `
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="text-slate-800">${car.name} <span class="text-[10px] text-slate-400 font-medium">(${car.economy} กม./ลิตร)</span></span>
+                            <span class="text-slate-900 font-bold">${Math.round(car.monthlyCost).toLocaleString()} บาท/เดือน</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-3 flex items-center">
+                            <div class="${colorClass} h-full rounded-full transition-all duration-300" style="width: ${percentage}%"></div>
+                        </div>
+                        <div class="flex justify-between text-[10px] text-slate-450 font-medium">
+                            <span>ใช้น้ำมันประมาณ ${Math.round(car.litres)} ลิตร</span>
+                            <span>ประมาณปีละ ${(Math.round(car.monthlyCost * 12)).toLocaleString()} บาท</span>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', barHTML);
+            });
+        }
+
+        // Summary Cards Render
+        function renderSummaryCards() {
+            const container = document.getElementById('summary-cards-container');
+            container.innerHTML = '';
+
+            const commute = parseFloat(document.getElementById('commute-dist').value);
+            const workdays = parseFloat(document.getElementById('work-days').value);
+            const trips = parseFloat(document.getElementById('city-trips').value);
+            const cityDist = parseFloat(document.getElementById('city-dist').value);
+            const fuelPrice = parseFloat(document.getElementById('fuel-price').value);
+            const totalDist = (commute * workdays) + (trips * cityDist);
+
+            cars.forEach(car => {
+                let badgeColor = 'bg-slate-100 text-slate-800 border-slate-200';
+                if (car.type === 'hybrid') badgeColor = 'bg-emerald-50 text-emerald-800 border-emerald-200/50';
+                if (car.type === 'phev') badgeColor = 'bg-indigo-50 text-indigo-800 border-indigo-200/50';
+                if (car.type === 'turbo') badgeColor = 'bg-amber-50 text-amber-800 border-amber-250/40';
+
+                // Check box active status
+                const isChecked = compareList.includes(car.id);
+
+                const perfPct = car.perfRating * 20;
+                const maintPct = car.maintRating * 20;
+                const spacePct = car.spaceRating * 20;
+
+                // Selected variant info
+                const selectedVarIdx = selectedVariants[car.id] !== undefined ? selectedVariants[car.id] : 0;
+                const selectedVar = car.variants && car.variants[selectedVarIdx] ? car.variants[selectedVarIdx] : { name: "Default", price: car.minPrice, specs: "" };
+                const activePrice = selectedVar.price;
+
+                // Financing values calculation
+                const downPct = parseFloat(document.getElementById('down-pct').value);
+                const months = parseInt(document.getElementById('finance-months').value);
+                const rate = parseFloat(document.getElementById('interest-rate').value);
+
+                const downAmount = activePrice * (downPct / 100);
+                const principal = activePrice - downAmount;
+                const totalInterest = principal * (rate / 100) * (months / 12);
+                const totalDebt = principal + totalInterest;
+                const installment = totalDebt / months;
+
+                // TCO Calculation (Total Cost of Ownership)
+                const fuelLitres = totalDist / car.economy;
+                const monthlyFuel = fuelLitres * fuelPrice;
+                const yearlyMaint = car.maintCost100k / 5; // standard 5 year period
+                const tcoYearly = (monthlyFuel * 12) + yearlyMaint + car.insuranceCost;
+                const tcoMonthly = tcoYearly / 12;
+
+const cardHTML = `
+                    <div class="car-card flex flex-col justify-between ${isChecked ? 'selected' : ''}" style="padding: 20px;">
+                        <div>
+                            <div class="flex justify-between items-start mb-3">
+                                <span class="text-[10px] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider ${car.type === 'hybrid' ? 'badge-hybrid' : car.type === 'phev' ? 'badge-phev' : car.type === 'turbo' ? 'badge-turbo' : 'badge-ice'}">
+                                    ${car.type === 'hybrid' ? '⛽ Hybrid' : car.type === 'phev' ? '🔌 PHEV' : car.type === 'turbo' ? '🏎️ Turbo' : '🛡️ ICE'}
+                                </span>
+                                <label class="inline-flex items-center gap-1.5 cursor-pointer">
+                                    <input type="checkbox" onchange="toggleCompare('${car.id}')" ${isChecked ? 'checked' : ''} class="w-4 h-4 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500">
+                                    <span class="text-[11px] font-bold text-slate-400">เปรียบเทียบ</span>
+                                </label>
+                            </div>
+
+                            <h4 class="font-bold text-slate-900 text-base leading-tight mt-3">${car.name}</h4>
+                            <p class="text-xs text-slate-400 mt-0.5">${car.sub}</p>
+                            
+                            <div class="flex items-center gap-1.5 mt-2 text-xs">
+                                <span class="text-slate-500 font-semibold">ช่วงราคา: ${car.price}</span>
+                            </div>
+
+                            <!-- Variant Dropdown Selector -->
+                            <div class="mt-3" style="background: linear-gradient(135deg, rgba(238,242,255,0.6), rgba(240,253,250,0.4)); border: 1px solid rgba(99,102,241,0.15); border-radius: 14px; padding: 12px;">
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="block text-[10px] font-bold text-indigo-900 uppercase tracking-wider">รุ่นย่อยที่เลือก:</label>
+                                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[9px] font-extrabold" style="background: white; border: 1px solid rgba(148,163,184,0.3); color: #475569;">${car.recommendationBadge}</span>
+                                </div>
+                                <select onchange="selectVariant('${car.id}', this.value)" class="glass-input" style="padding: 6px 10px;">
+                                    ${car.variants ? car.variants.map((v, idx) => `<option value="${idx}" ${selectedVarIdx === idx ? 'selected' : ''}>${v.name} - ${v.price.toLocaleString()} บาท</option>`).join('') : `<option value="0">${car.name} - ${car.minPrice.toLocaleString()} บาท</option>`}
+                                </select>
+                                <div class="mt-2 text-[10.5px] text-indigo-950 leading-relaxed p-2 rounded-lg" style="background: rgba(255,255,255,0.7); border: 1px solid rgba(99,102,241,0.1);">
+                                    <strong class="text-indigo-700">✨ สเปกเด่น:</strong> ${selectedVar.specs}
+                                </div>
+                            </div>
+
+                            <!-- Downpayment and installment visual -->
+                            <div class="mt-3 p-3 rounded-xl text-[11px] space-y-1.5 text-slate-600" style="background: #f8fafc; border: 1px solid rgba(148,163,184,0.2);">
+                                <div class="flex justify-between font-medium">
+                                    <span class="text-slate-400">ดาวน์เริ่มต้น (${downPct}%):</span>
+                                    <span class="font-bold text-slate-800">${Math.round(downAmount).toLocaleString()} บาท</span>
+                                </div>
+                                <div class="flex justify-between font-medium">
+                                    <span class="text-slate-400 font-semibold">ผ่อนประมาณ (${months} เดือน):</span>
+                                    <span class="font-black" style="color: var(--brand);">${Math.round(installment).toLocaleString()} บาท/เดือน</span>
+                                </div>
+                            </div>
+
+                            <!-- TCO (Total Cost of Ownership) -->
+                            <div class="mt-2 p-3 rounded-xl text-[11px] space-y-1.5" style="background: linear-gradient(135deg, rgba(238,242,255,0.5), rgba(240,253,250,0.3)); border: 1px solid rgba(99,102,241,0.12);">
+                                <div class="flex justify-between font-bold text-indigo-950">
+                                    <span>💰 ค่าครองชีพรถเฉลี่ย:</span>
+                                    <span>${Math.round(tcoMonthly).toLocaleString()} บาท/เดือน</span>
+                                </div>
+                                <div class="flex justify-between text-[9px] text-slate-400 leading-relaxed font-medium">
+                                    <span>(น้ำมัน + เช็กระยะ + ประกัน)</span>
+                                    <span class="font-bold cursor-pointer underline" style="color: var(--brand);" onclick="alert('ประมาณการแจกแจงค่าครองชีพรถต่อเดือน (${car.name} รุ่น ${selectedVar.name}):\\n\\n1. ค่าน้ำมันเฉลี่ย: ${Math.round(monthlyFuel).toLocaleString()} บาท/เดือน\\n2. ค่าเช็คระยะบำรุงรักษาเฉลี่ย: ${Math.round(yearlyMaint / 12).toLocaleString()} บาท/เดือน\\n3. ค่าประกันภัยชั้น 1 เฉลี่ย: ${Math.round(car.insuranceCost / 12).toLocaleString()} บาท/เดือน\\n\\n*คำนวณจากระยะวิ่ง ${Math.round(totalDist).toLocaleString()} กม./เดือน และราคาของรุ่นย่อย ${selectedVar.name}')">ดูแยกชิ้น ▾</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4 pt-4 space-y-2.5 text-xs text-slate-600" style="border-top: 1px solid rgba(148,163,184,0.15);">
+                                <div><strong class="text-emerald-700 font-semibold">✅ ข้อดีหลัก:</strong> ${car.pros}</div>
+                                <div><strong class="text-rose-600 font-semibold">⚠️ ข้อสังเกต:</strong> ${car.cons}</div>
+                            </div>
+
+                            <!-- Sub-model comparison accordion -->
+                            <div class="mt-3 overflow-hidden text-xs" style="border: 1px solid rgba(148,163,184,0.2); border-radius: 12px; background: rgba(248,250,252,0.6);">
+                                <div onclick="document.getElementById('sub-compare-${car.id}').classList.toggle('hidden'); this.querySelector('.arrow').classList.toggle('rotate-180')" class="px-3 py-2.5 cursor-pointer flex justify-between items-center font-bold text-slate-600 hover:bg-slate-100/80 transition-colors select-none" style="background: rgba(248,250,252,0.8);">
+                                    <span>📋 ราคาและรายละเอียดทุกรุ่นย่อย</span>
+                                    <span class="arrow transition-transform duration-200 text-slate-400">▼</span>
+                                </div>
+                                <div id="sub-compare-${car.id}" class="hidden p-2.5 space-y-2" style="border-top: 1px solid rgba(148,163,184,0.15); background: white;">
+                                    <div class="space-y-2 max-h-[220px] overflow-y-auto pr-1">
+                                        ${car.variants ? car.variants.map((v, idx) => `
+                                            <div class="p-2 rounded-lg cursor-pointer transition-all text-[11px] leading-relaxed" style="border: 1.5px solid ${selectedVarIdx === idx ? 'var(--brand)' : 'rgba(148,163,184,0.2)'}; background: ${selectedVarIdx === idx ? 'rgba(79,70,229,0.05)' : 'white'};" onclick="selectVariant('${car.id}', ${idx}); event.stopPropagation();">
+                                                <div class="flex justify-between font-bold ${selectedVarIdx === idx ? 'text-indigo-900' : 'text-slate-700'}">
+                                                    <span>${v.name} ${selectedVarIdx === idx ? '<span style="font-size:9px; padding: 1px 6px; background: var(--brand); color: white; border-radius: 99px; margin-left: 4px;">กำลังเลือก</span>' : ''}</span>
+                                                    <span style="color: var(--brand);">${v.price.toLocaleString()} บาท</span>
+                                                </div>
+                                                <div class="text-[10px] text-slate-500 mt-1">${v.specs}</div>
+                                            </div>
+                                        `).join('') : ''}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 space-y-2.5 text-[11px]" style="border-top: 1px solid rgba(148,163,184,0.12);">
+                            <div class="flex items-center justify-between text-slate-500 font-medium">
+                                <span>🚀 ความแรงเร่งแซง:</span>
+                                <div class="flex items-center gap-2">
+                                    <div class="stat-bar-track">
+                                        <div class="stat-bar-fill" style="width: ${perfPct}%; background: linear-gradient(to right, #6366f1, #4f46e5);"></div>
+                                    </div>
+                                    <span class="w-8 text-right font-bold text-slate-700 text-[10px]">${car.perfRating}/5</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between text-slate-500 font-medium">
+                                <span>🔧 ซ่อมบำรุงง่าย:</span>
+                                <div class="flex items-center gap-2">
+                                    <div class="stat-bar-track">
+                                        <div class="stat-bar-fill" style="width: ${maintPct}%; background: linear-gradient(to right, #10b981, #059669);"></div>
+                                    </div>
+                                    <span class="w-8 text-right font-bold text-slate-700 text-[10px]">${car.maintRating}/5</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between text-slate-500 font-medium">
+                                <span>🛋️ ความกว้างขวาง:</span>
+                                <div class="flex items-center gap-2">
+                                    <div class="stat-bar-track">
+                                        <div class="stat-bar-fill" style="width: ${spacePct}%; background: linear-gradient(to right, #f59e0b, #d97706);"></div>
+                                    </div>
+                                    <span class="w-8 text-right font-bold text-slate-700 text-[10px]">${car.spaceRating}/5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        }
+
+        // Detailed Spec Table Render
+        function renderSpecsTable() {
+            const body = document.getElementById('spec-table-body');
+            body.innerHTML = '';
+
+            cars.forEach(car => {
+                let badgeClass = 'bg-slate-100 text-slate-800 border-slate-200';
+                if (car.type === 'hybrid') badgeClass = 'bg-emerald-50 text-emerald-800 border-emerald-200/50';
+                if (car.type === 'phev') badgeClass = 'bg-indigo-50 text-indigo-850 border-indigo-200/50';
+                if (car.type === 'turbo') badgeClass = 'bg-amber-50 text-amber-800 border-amber-250/40';
+
+                const isChecked = compareList.includes(car.id);
+
+                const rowHTML = `
+                    <tr class="hover:bg-slate-50 transition-colors ${isChecked ? 'bg-indigo-50/20' : ''}">
+                        <td class="px-4 py-4 whitespace-nowrap sticky left-0 bg-white border-r border-slate-200 z-10">
+                            <div class="flex items-center gap-2.5">
+                                <input type="checkbox" onchange="toggleCompare('${car.id}')" ${isChecked ? 'checked' : ''} class="w-4 h-4 text-indigo-650 border-slate-350 rounded focus:ring-indigo-500">
+                                <div>
+                                    <div class="font-bold text-slate-900 text-xs sm:text-sm">${car.name}</div>
+                                    <span class="inline-flex mt-1 items-center px-1.5 py-0.5 rounded text-[9px] font-bold border ${badgeClass}">
+                                        ${car.type.toUpperCase()}
+                                    </span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-4 py-4 font-bold text-indigo-650 text-xs sm:text-sm">${car.price}</td>
+                        <td class="px-4 py-4">
+                            <div class="font-semibold text-slate-800">${car.economy} กม./ลิตร</div>
+                            <div class="text-[10px] text-slate-400 font-medium">${car.driveSystem}</div>
+                        </td>
+                        <td class="px-4 py-4 text-xs text-slate-650 leading-relaxed">${car.space}</td>
+                        <td class="px-4 py-4 text-xs font-semibold text-slate-700 leading-relaxed">${car.maintenance}</td>
+                        <td class="px-4 py-4 text-xs font-semibold text-slate-750">${car.centerScore}</td>
+                        <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed max-w-[220px] whitespace-normal">${car.safety}</td>
+                        <td class="px-4 py-4 text-xs text-slate-600 leading-relaxed max-w-[220px] whitespace-normal">${car.warranty}</td>
+                        <td class="px-4 py-4 text-center font-black text-indigo-900 text-xs sm:text-sm">${car.suitability}</td>
+                    </tr>
+                `;
+                body.insertAdjacentHTML('beforeend', rowHTML);
+            });
+        }
+
+        // Toggle cars in Compare list
+        function toggleCompare(carId) {
+            const index = compareList.indexOf(carId);
+            if (index > -1) {
+                compareList.splice(index, 1);
+            } else {
+                if (compareList.length >= 3) {
+                    alert("สามารถเลือกเปรียบเทียบพร้อมกันได้สูงสุด 3 รุ่นครับ");
+                    // Re-render to undo checked state
+                    renderSummaryCards();
+                    renderSpecsTable();
+                    return;
+                }
+                compareList.push(carId);
+            }
+            renderSummaryCards();
+            renderSpecsTable();
+            updateCompareWidget();
+            renderCompareBoard();
+        }
+
+        function updateCompareWidget() {
+            const widget = document.getElementById('floating-compare-widget');
+            const widgetText = document.getElementById('compare-widget-text');
+
+            if (compareList.length > 0) {
+                widgetText.textContent = `เลือกเปรียบเทียบแล้ว ${compareList.length} รุ่น (สูงสุด 3)`;
+                widget.classList.remove('translate-y-24', 'opacity-0');
+            } else {
+                widget.classList.add('translate-y-24', 'opacity-0');
+            }
+        }
+
+        function clearSelectedCompare() {
+            compareList = [];
+            renderSummaryCards();
+            renderSpecsTable();
+            updateCompareWidget();
+            renderCompareBoard();
+        }
+
+        function triggerComparisonTab() {
+            switchTab('comparison');
+            renderCompareBoard();
+            // Scroll to the compare board
+            document.getElementById('compare-board-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Render Compare Board (Side-by-side)
+        function renderCompareBoard() {
+            const board = document.getElementById('compare-board-section');
+            const head = document.getElementById('compare-board-head');
+            const body = document.getElementById('compare-board-body');
+
+            if (compareList.length === 0) {
+                board.classList.add('hidden');
+                return;
+            }
+
+            board.classList.remove('hidden');
+
+            // Generate columns width depending on selection count
+            const selectedCarsData = cars.filter(car => compareList.includes(car.id));
+            const colWidthPercent = 85 / selectedCarsData.length;
+
+            // Header Row
+            let headHTML = `
+                <tr>
+                    <th scope="col" class="px-4 py-3 text-xs font-bold text-slate-500 uppercase tracking-wider w-[15%]">หัวข้อเปรียบเทียบ</th>
+            `;
+            selectedCarsData.forEach(car => {
+                headHTML += `
+                    <th scope="col" class="px-4 py-3 text-xs font-bold text-slate-900 uppercase tracking-wider text-center" style="width: ${colWidthPercent}%">
+                        <div class="font-extrabold text-xs">${car.name}</div>
+                        <div class="text-[10px] text-slate-400 font-medium normal-case">${car.sub}</div>
+                    </th>
+                `;
+            });
+            headHTML += `</tr>`;
+            head.innerHTML = headHTML;
+
+            // Body rows
+            const fields = [
+                {
+                    label: "🏷️ รุ่นย่อยที่เลือก", valFn: car => {
+                        const selectedVarIdx = selectedVariants[car.id] !== undefined ? selectedVariants[car.id] : 0;
+                        const selectedVar = car.variants && car.variants[selectedVarIdx] ? car.variants[selectedVarIdx] : { name: "Default", price: car.minPrice, specs: "" };
+                        return `<div class="font-bold text-indigo-950">${selectedVar.name}</div><div class="text-indigo-650 font-extrabold mt-0.5">${selectedVar.price.toLocaleString()} บาท</div>`;
+                    }
+                },
+                { label: "💰 ช่วงราคารุ่นทั้งหมด", key: "price" },
+                { label: "⚙️ ระบบขับเคลื่อน", key: "driveSystem" },
+                { label: "🔌 ข้อมูลเครื่องยนต์ & กำลัง", key: "engine" },
+                { label: "⛽ กินน้ำมันจริง", valFn: car => `${car.economy} กม./ลิตร` },
+                {
+                    label: "💵 เงินดาวน์ที่คุณเลือก", valFn: car => {
+                        const selectedVarIdx = selectedVariants[car.id] !== undefined ? selectedVariants[car.id] : 0;
+                        const selectedVar = car.variants && car.variants[selectedVarIdx] ? car.variants[selectedVarIdx] : { name: "Default", price: car.minPrice, specs: "" };
+                        const activePrice = selectedVar.price;
+                        const downPct = parseFloat(document.getElementById('down-pct').value);
+                        const amt = activePrice * (downPct / 100);
+                        return `<strong>${Math.round(amt).toLocaleString()} บาท</strong> (${downPct}%)`;
+                    }
+                },
+                {
+                    label: "📈 ยอดจัดไฟแนนซ์", valFn: car => {
+                        const selectedVarIdx = selectedVariants[car.id] !== undefined ? selectedVariants[car.id] : 0;
+                        const selectedVar = car.variants && car.variants[selectedVarIdx] ? car.variants[selectedVarIdx] : { name: "Default", price: car.minPrice, specs: "" };
+                        const activePrice = selectedVar.price;
+                        const downPct = parseFloat(document.getElementById('down-pct').value);
+                        const amt = activePrice * (1 - downPct / 100);
+                        return `${Math.round(amt).toLocaleString()} บาท`;
+                    }
+                },
+                {
+                    label: "🗓️ ยอดผ่อนต่อเดือน", valFn: car => {
+                        const selectedVarIdx = selectedVariants[car.id] !== undefined ? selectedVariants[car.id] : 0;
+                        const selectedVar = car.variants && car.variants[selectedVarIdx] ? car.variants[selectedVarIdx] : { name: "Default", price: car.minPrice, specs: "" };
+                        const activePrice = selectedVar.price;
+                        const downPct = parseFloat(document.getElementById('down-pct').value);
+                        const months = parseInt(document.getElementById('finance-months').value);
+                        const rate = parseFloat(document.getElementById('interest-rate').value);
+
+                        const downAmt = activePrice * (downPct / 100);
+                        const principal = activePrice - downAmt;
+                        const interest = principal * (rate / 100) * (months / 12);
+                        const installment = (principal + interest) / months;
+                        return `<strong class="text-indigo-650">${Math.round(installment).toLocaleString()} บาท/เดือน</strong><span class="text-[10px] text-slate-400 block font-medium">(${months} งวด, ดอกเบี้ย ${rate}%)</span>`;
+                    }
+                },
+                { label: "🛋️ พื้นที่และการนั่ง", key: "space" },
+                { label: "🛡️ ระบบความปลอดภัย", key: "safety" },
+                { label: "📜 เงื่อนไขรับประกัน", key: "warranty" },
+                { label: "🔧 ซ่อมระยะยาว (แสนกม.)", key: "maintenance" },
+                { label: "🟢 ศูนย์บริการต่างจังหวัด", key: "centerScore" },
+                { label: "✅ ข้อดีเด่น", key: "pros" },
+                { label: "❌ ข้อสังเกต", key: "cons" },
+                { label: "🏆 คะแนนความเหมาะสม", key: "suitability" }
+            ];
+
+            let bodyHTML = "";
+            fields.forEach(field => {
+                bodyHTML += `<tr>`;
+                bodyHTML += `<td class="px-4 py-3 font-semibold text-xs text-slate-500 bg-slate-50 border-r border-slate-200">${field.label}</td>`;
+
+                selectedCarsData.forEach(car => {
+                    let val = "";
+                    if (field.valFn) {
+                        val = field.valFn(car);
+                    } else {
+                        val = car[field.key];
+                    }
+
+                    let cellClass = "text-center text-xs p-3 text-slate-700 leading-relaxed";
+                    if (field.key === "suitability") {
+                        cellClass = "text-center text-sm font-extrabold text-indigo-700 p-3";
+                    } else if (field.key === "price") {
+                        cellClass = "text-center font-bold text-slate-800 p-3 text-xs";
+                    } else if (field.key === "pros") {
+                        cellClass = "text-left text-xs p-3 text-emerald-800 font-medium bg-emerald-50/20 leading-relaxed border-r border-slate-100";
+                    } else if (field.key === "cons") {
+                        cellClass = "text-left text-xs p-3 text-rose-800 font-medium bg-rose-50/10 leading-relaxed border-r border-slate-100";
+                    }
+
+                    bodyHTML += `<td class="${cellClass}">${val}</td>`;
+                });
+                bodyHTML += `</tr>`;
+            });
+            body.innerHTML = bodyHTML;
+        }
+
+        // Match Wizard Quiz logic
+        function answerQuestion(qNum, value) {
+            quizAnswers[`q${qNum}`] = value;
+
+            // Highlight chosen button
+            document.querySelectorAll(`.quiz-btn[data-q="${qNum}"]`).forEach(btn => {
+                btn.classList.remove('selected');
+                const dot = btn.querySelector('.quiz-dot');
+                if (dot) dot.className = 'quiz-dot';
+            });
+
+            const activeBtn = document.querySelector(`.quiz-btn[data-q="${qNum}"][data-val="${value}"]`);
+            activeBtn.classList.add('selected');
+            const activeDot = activeBtn.querySelector('.quiz-dot');
+            // dot style handled by CSS via .quiz-option.selected .quiz-dot
+
+            // Move to next question or show results with animated transition
+            const progress = document.querySelector('#quiz-progress-bar div');
+            if (qNum === 1) {
+                progress.style.width = '66%';
+                setTimeout(() => {
+                    document.getElementById('q1').classList.add('hidden');
+                    document.getElementById('q2').classList.remove('hidden');
+                    document.getElementById('quiz-step').textContent = 'คำถามข้อที่ 2 จาก 3';
+                }, 350);
+            } else if (qNum === 2) {
+                progress.style.width = '100%';
+                setTimeout(() => {
+                    document.getElementById('q2').classList.add('hidden');
+                    document.getElementById('q3').classList.remove('hidden');
+                    document.getElementById('quiz-step').textContent = 'คำถามข้อที่ 3 จาก 3';
+                }, 350);
+            } else if (qNum === 3) {
+                setTimeout(() => {
+                    document.getElementById('q3').classList.add('hidden');
+                    document.getElementById('quiz-nav').classList.add('hidden');
+                    document.getElementById('quiz-progress-bar').classList.add('hidden');
+                    showQuizResults();
+                }, 350);
+            }
+        }
+
+        function resetQuiz() {
+            quizAnswers = { q1: null, q2: null, q3: null };
+            document.querySelectorAll('.quiz-btn').forEach(btn => {
+                btn.classList.remove('selected');
+                const dot = btn.querySelector('.quiz-dot');
+                if (dot) {
+                    dot.className = 'quiz-dot';
+                }
+            });
+
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('btn-reset').classList.add('hidden');
+            document.getElementById('q1').classList.remove('hidden');
+            document.getElementById('q2').classList.add('hidden');
+            document.getElementById('q3').classList.add('hidden');
+
+            const progress = document.querySelector('#quiz-progress-bar div');
+            progress.style.width = '33%';
+            document.getElementById('quiz-progress-bar').classList.remove('hidden');
+            document.getElementById('quiz-nav').classList.remove('hidden');
+            document.getElementById('quiz-step').textContent = 'คำถามข้อที่ 1 จาก 3';
+        }
+
+        function showQuizResults() {
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('btn-reset').classList.remove('hidden');
+
+            // Calculate score logic for each car based on quizAnswers
+            const results = cars.map(car => {
+                let score = 100;
+
+                // Adjust for Q1: Maintenance / Tech fear
+                if (quizAnswers.q1 === 'worry-high') {
+                    if (car.type === 'ice') score += 20; // Boost ICE
+                    if (car.type === 'hybrid') score -= 15;
+                    if (car.type === 'phev') score -= 40; // Penalty PHEV (high concern)
+                    if (car.type === 'turbo') score -= 5;
+                } else if (quizAnswers.q1 === 'worry-low') {
+                    if (car.type === 'hybrid' || car.type === 'phev') score += 20;
+                    if (car.type === 'ice') score -= 15;
+                }
+
+                // Adjust for Q2: Speed / Accel needs
+                if (quizAnswers.q2 === 'style-active') {
+                    if (car.type === 'turbo' || car.id === 'city-hev' || car.id === 'city-hb-hev' || car.id === 'byd-seal5' || car.id === 'hrv-hev') score += 20;
+                    if (car.id === 'ativ-12') score -= 35; // Heavy penalty for slow ICE
+                    if (car.id === 'ativ-hev' || car.id === 'yaris-cross-hev' || car.id === 'corolla-cross-hev') score -= 10;
+                } else if (quizAnswers.q2 === 'style-chill') {
+                    if (car.id === 'ativ-12') score += 15;
+                    if (car.id === 'ativ-hev' || car.id === 'yaris-cross-hev' || car.id === 'corolla-cross-hev') score += 15;
+                }
+
+                // Adjust for Q3: Charging convenience
+                if (quizAnswers.q3 === 'charge-no') {
+                    if (car.type === 'phev') score -= 50; // Heavy penalty if can't charge PHEV
+                } else if (quizAnswers.q3 === 'charge-yes') {
+                    if (car.type === 'phev') score += 30; // Boost if PHEV matching wallbox charge
+                    if (car.type === 'ice') score -= 10;
+                }
+
+                return { name: car.name, score: Math.max(0, Math.min(100, score)) };
+            });
+
+            // Sort by score
+            results.sort((a, b) => b.score - a.score);
+
+            // Display best match
+            document.getElementById('top-match-text').innerHTML = `🥇 ${results[0].name}`;
+
+            // Render score breakdown bars
+            const breakdownContainer = document.getElementById('score-breakdown');
+            breakdownContainer.innerHTML = '';
+
+            results.forEach(res => {
+                const percentage = res.score;
+                // Controlled coloring
+                let barColor = 'bg-slate-500';
+                if (percentage >= 85) barColor = 'bg-indigo-650';
+                else if (percentage >= 60) barColor = 'bg-slate-700';
+                else barColor = 'bg-slate-400';
+
+                const barHTML = `
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="text-slate-800">${res.name}</span>
+                            <span class="text-slate-900 font-bold">${percentage}% แมตช์</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2 flex items-center">
+                            <div class="${barColor} h-full rounded-full transition-all duration-500" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                `;
+                breakdownContainer.insertAdjacentHTML('beforeend', barHTML);
+            });
+        }
+    
+
+
+        // TCO Calculation & Rendering
+        function calculateTCO() {
+            const commute = parseFloat(document.getElementById('commute-dist').value);
+            const workdays = parseFloat(document.getElementById('work-days').value);
+            const trips = parseFloat(document.getElementById('city-trips').value);
+            const cityDist = parseFloat(document.getElementById('city-dist').value);
+            const fuelPrice = parseFloat(document.getElementById('fuel-price').value);
+            
+            const totalDist = (commute * workdays) + (trips * cityDist);
+            const years = parseInt(document.getElementById('tco-years').value);
+            
+            const container = document.getElementById('tco-bars-container');
+            if (!container) return;
+            container.innerHTML = '';
+            
+            const tcoCars = cars.map(car => {
+                const selectedVarIdx = selectedVariants[car.id] !== undefined ? selectedVariants[car.id] : 0;
+                const selectedVar = car.variants && car.variants[selectedVarIdx] ? car.variants[selectedVarIdx] : { name: "Default", price: car.minPrice, specs: "" };
+                const activePrice = selectedVar.price;
+                
+                const fuelCost = (totalDist / car.economy) * fuelPrice * 12 * years;
+                const maintCost = car.maintCost100k * ((totalDist * 12 * years) / 100000);
+                const insuranceCostTotal = car.insuranceCost * years;
+                const totalTCO = activePrice + fuelCost + maintCost + insuranceCostTotal;
+                
+                return {
+                    ...car,
+                    activePrice,
+                    fuelCost,
+                    maintCost,
+                    insuranceCostTotal,
+                    totalTCO,
+                    variantName: selectedVar.name
+                };
+            });
+            
+            tcoCars.sort((a, b) => a.totalTCO - b.totalTCO);
+            const maxTCO = Math.max(...tcoCars.map(c => c.totalTCO));
+            
+            tcoCars.forEach(car => {
+                const percentage = (car.totalTCO / maxTCO) * 100;
+                let colorClass = 'bg-slate-500';
+                if (car.type === 'hybrid') colorClass = 'bg-emerald-600';
+                if (car.type === 'phev') colorClass = 'bg-indigo-650';
+                if (car.type === 'turbo') colorClass = 'bg-amber-500';
+                
+                const barHTML = `
+                    <div class="space-y-1">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="text-slate-800">${car.name} <span class="text-[10px] text-slate-400 font-medium">(${car.variantName})</span></span>
+                            <span class="text-slate-900 font-bold">${Math.round(car.totalTCO).toLocaleString()} บาท</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-3 flex items-center">
+                            <div class="${colorClass} h-full rounded-full transition-all duration-300" style="width: ${percentage}%"></div>
+                        </div>
+                        <div class="flex justify-between text-[9.5px] text-slate-455 font-semibold leading-normal">
+                            <span>ตัวรถ: ${Math.round(car.activePrice / 10000).toLocaleString()}หมื่น | น้ำมัน: ${Math.round(car.fuelCost / 10000).toLocaleString()}หมื่น</span>
+                            <span>บำรุงรักษา: ${Math.round(car.maintCost / 10000).toLocaleString()}หมื่น | ประกัน: ${Math.round(car.insuranceCostTotal / 10000).toLocaleString()}หมื่น</span>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', barHTML);
+            });
+        }
+
+        // Break-even Calculator Setup & Render
+        function initBreakEvenCars() {
+            const select1 = document.getElementById('be-car-1');
+            const select2 = document.getElementById('be-car-2');
+            if (!select1 || !select2) return;
+            
+            const val1 = select1.value;
+            const val2 = select2.value;
+            
+            select1.innerHTML = '';
+            select2.innerHTML = '';
+            
+            cars.forEach(car => {
+                const selectedVarIdx = selectedVariants[car.id] !== undefined ? selectedVariants[car.id] : 0;
+                const selectedVar = car.variants && car.variants[selectedVarIdx] ? car.variants[selectedVarIdx] : { name: "Default", price: car.minPrice };
+                const label = `${car.name} (\ ${selectedVar.name}) - ${selectedVar.price.toLocaleString()} บ.`;
+                
+                const opt1 = document.createElement('option');
+                opt1.value = car.id;
+                opt1.textContent = label;
+                select1.appendChild(opt1);
+                
+                const opt2 = document.createElement('option');
+                opt2.value = car.id;
+                opt2.textContent = label;
+                select2.appendChild(opt2);
+            });
+            
+            if (val1 && cars.some(c => c.id === val1)) select1.value = val1;
+            else select1.value = "ativ-hev";
+            
+            if (val2 && cars.some(c => c.id === val2)) select2.value = val2;
+            else select2.value = "ativ-12";
+        }
+        
+        function calculateBreakEven() {
+            const select1 = document.getElementById('be-car-1');
+            const select2 = document.getElementById('be-car-2');
+            const container = document.getElementById('be-result-container');
+            if (!select1 || !select2 || !container) return;
+            
+            const carId1 = select1.value;
+            const carId2 = select2.value;
+            
+            if (carId1 === carId2) {
+                container.innerHTML = `<div class="text-center py-2 text-slate-500 font-semibold">โปรดเลือกรถยนต์คนละรุ่นเพื่อคำนวณเปรียบเทียบจุดคุ้มทุน</div>`;
+                return;
+            }
+            
+            const car1 = cars.find(c => c.id === carId1);
+            const car2 = cars.find(c => c.id === carId2);
+            
+            const varIdx1 = selectedVariants[carId1] !== undefined ? selectedVariants[carId1] : 0;
+            const var1 = car1.variants && car1.variants[varIdx1] ? car1.variants[varIdx1] : { name: "Default", price: car1.minPrice };
+            
+            const varIdx2 = selectedVariants[carId2] !== undefined ? selectedVariants[carId2] : 0;
+            const var2 = car2.variants && car2.variants[varIdx2] ? car2.variants[varIdx2] : { name: "Default", price: car2.minPrice };
+            
+            const p1 = var1.price;
+            const p2 = var2.price;
+            
+            const commute = parseFloat(document.getElementById('commute-dist').value);
+            const workdays = parseFloat(document.getElementById('work-days').value);
+            const trips = parseFloat(document.getElementById('city-trips').value);
+            const cityDist = parseFloat(document.getElementById('city-dist').value);
+            const fuelPrice = parseFloat(document.getElementById('fuel-price').value);
+            const totalDist = (commute * workdays) + (trips * cityDist);
+            
+            const f1 = (totalDist / car1.economy) * fuelPrice;
+            const f2 = (totalDist / car2.economy) * fuelPrice;
+            
+            const diffPrice = p1 - p2;
+            const diffFuel = f2 - f1; 
+            
+            let resultHTML = "";
+            
+            if (diffPrice > 0 && diffFuel > 0) {
+                const months = diffPrice / diffFuel;
+                const yearsVal = Math.floor(months / 12);
+                const monthsVal = Math.round(months % 12);
+                
+                let timeText = "";
+                if (yearsVal > 0) timeText += `<strong>${yearsVal} ปี</strong> `;
+                timeText += `<strong>${monthsVal} เดือน</strong>`;
+                
+                const kmTotal = totalDist * months;
+                
+                resultHTML = `
+                    <div class="space-y-2">
+                        <div class="font-bold text-indigo-900 text-sm">💡 ผลการวิเคราะห์จุดคุ้มทุน (Break-even):</div>
+                        <p class="leading-relaxed">
+                            รถคันที่ 1 (${car1.name}) ราคาสูงกว่าคันที่ 2 อยู่ <strong>${diffPrice.toLocaleString()} บาท</strong> 
+                            แต่ประหยัดค่าน้ำมันได้มากกว่า <strong>${Math.round(diffFuel).toLocaleString()} บาท/เดือน</strong>
+                        </p>
+                        <div class="p-3 bg-white/70 border border-indigo-150 rounded-xl mt-2 text-center">
+                            <span class="text-sm font-extrabold text-indigo-950">น้องดาวต้องขับรถระยะทางสะสม ${Math.round(kmTotal).toLocaleString()} กม.</span>
+                            <span class="block text-xs text-indigo-800 font-bold mt-1">จึงจะถึงจุดคุ้มทุนค่าน้ำมันในเวลา ${timeText}</span>
+                        </div>
+                    </div>
+                `;
+            } else if (diffPrice < 0 && diffFuel > 0) {
+                resultHTML = `
+                    <div class="space-y-2">
+                        <div class="font-bold text-emerald-950 text-sm">🟢 คุ้มค่าที่สุดทันที:</div>
+                        <p class="leading-relaxed text-emerald-850">
+                            รถคันที่ 1 (${car1.name}) <strong>มีราคาถูกกว่า</strong> และ <strong>ประหยัดน้ำมันกว่า</strong> 
+                            คันที่ 2 (${car2.name}) ทันที ทำให้คุ้มค่าทางเศรษฐศาสตร์ตั้งแต่วันแรกที่ซื้อโดยไม่ต้องคำนวณจุดคุ้มทุน!
+                        </p>
+                    </div>
+                `;
+            } else if (diffPrice > 0 && diffFuel < 0) {
+                resultHTML = `
+                    <div class="space-y-2">
+                        <div class="font-bold text-rose-955 text-sm">⚠️ ข้อจำกัดด้านความคุ้มทุน:</div>
+                        <p class="leading-relaxed text-rose-850">
+                            รถคันที่ 1 (${car1.name}) มีราคาแพงกว่า และกินน้ำมันมากกว่าคันที่ 2 (${car2.name}) 
+                            ทำให้ไม่สามารถคืนทุนผ่านค่าน้ำมันส่วนต่างได้ ควรพิจารณาตัดสินใจเลือกจากความชอบ ขนาดตัวถัง หรือจุดเด่นอื่นๆ แทนความคุ้มค่าทางการเงินครับ
+                        </p>
+                    </div>
+                `;
+            } else if (diffPrice < 0 && diffFuel < 0) {
+                const diffPriceAbs = Math.abs(diffPrice);
+                const diffFuelAbs = Math.abs(diffFuel);
+                const months = diffPriceAbs / diffFuelAbs;
+                const yearsVal = Math.floor(months / 12);
+                const monthsVal = Math.round(months % 12);
+                let timeText = "";
+                if (yearsVal > 0) timeText += `<strong>${yearsVal} ปี</strong> `;
+                timeText += `<strong>${monthsVal} เดือน</strong>`;
+                
+                resultHTML = `
+                    <div class="space-y-2">
+                        <div class="font-bold text-indigo-900 text-sm">💡 จุดสลับผลประโยชน์ทางการเงิน:</div>
+                        <p class="leading-relaxed">
+                            รถคันที่ 1 (${car1.name}) <strong>ราคาถูกกว่าคันที่ 2 อยู่ ${diffPriceAbs.toLocaleString()} บาท</strong> 
+                            แต่คันที่ 2 ประหยัดน้ำมันกว่าคันที่ 1 อยู่ <strong>${Math.round(diffFuelAbs).toLocaleString()} บาท/เดือน</strong>
+                        </p>
+                        <div class="p-3 bg-white/70 border border-indigo-150 rounded-xl mt-2 text-center">
+                            <span class="text-sm font-extrabold text-indigo-950">หากน้องดาวใช้รถเกิน ${timeText} (หรือวิ่งเกิน ${Math.round(totalDist * months).toLocaleString()} กม.)</span>
+                            <span class="block text-xs text-indigo-800 font-bold mt-1">คันที่ 2 จะเริ่มประหยัดเงินรวมได้มากกว่าคันที่ 1 ครับ</span>
+                        </div>
+                    </div>
+                `;
+            } else {
+                resultHTML = `<div class="text-center py-2 text-slate-500 font-semibold">รถทั้งสองรุ่นมีราคาและอัตราการสิ้นเปลืองใกล้เคียงกันมาก</div>`;
+            }
+            
+            container.innerHTML = resultHTML;
+        }
+
+</script>
+</body>
+
+</html>
